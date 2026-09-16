@@ -25,19 +25,49 @@ The build script (`wiki/build.py`) reads all `.md` files, converts them to HTML,
 
 ## Page Metadata
 
-An optional front-matter block at the top of the file sets the page title, topic, and icon:
+An optional front-matter block at the top of the file sets page properties:
 
 ```
 ---
 title: My Page
 topic: Machines
+categories: Machines, Extraction
 icon: w98_gears.png
 ---
 
 # My Page
 ```
 
-`topic` groups the page on the main page's topic grid; `icon` is the icon shown beside it (any file in `static/icons/`).
+- `title` — page title shown in the title bar and breadcrumbs
+- `topic` — groups the page on the homepage quick-nav grid and generates category pages
+- `categories` — comma-separated list of categories; generates `category-*.html` pages
+- `icon` — icon shown beside the page in listings (any file in `static/icons/`)
+
+## Categories
+
+Pages tagged with `categories` are automatically grouped into category pages. Each unique category gets its own `category-name.html` page listing all member pages. The sidebar shows category links under the "Topics" section.
+
+## Navigation
+
+The wiki includes several navigation elements:
+
+- **Top nav bar** — horizontal tabs below the titlebar for major sections (Home, Contents, All Pages)
+- **Sidebar sections** — grouped navigation links (Main, Topics, Community)
+- **Breadcrumbs** — `Home > Topic > Page` trail on every article
+- **Related articles** — automatically suggested at the bottom of each page based on shared categories/topic
+- **Random page** — button on the homepage redirects to a random page
+
+All navigation is configured in `wiki/config.py` via `WG_NAV_LINKS` and `WG_SIDEBAR_SECTIONS`.
+
+## Homepage Features
+
+The homepage supports special template directives:
+
+- `{{hero}}` — logo and tagline block
+- `{{randompage}}` — random page button
+- `{{dyk}}` — "Did you know..." facts (configured in `WG_DID_YOU_KNOW`)
+- `{{featured}}` — featured article card (configured in `WG_FEATURED_PAGE`)
+- `{{topics}}` — quick navigation icon grid
 
 ## Article Tags
 
@@ -74,13 +104,15 @@ Write tables with pipes. The first row is the header. The separator row (`| --- 
 | This Wiki | Documentation |
 ```
 
-Or with an explicit separator (same result):
+## Colored Tables
+
+Add `<!-- rowclass:colorname -->` before a table row to color it. Available colors: blue, red, green, yellow, orange, purple, cyan, grey.
 
 ```
-| Page | Description |
-| ---- | ----------- |
-| Welcome | The home page |
-| This Wiki | Documentation |
+<!-- rowclass:green -->
+| Item | Value |
+| ---- | ----- |
+| Good | 100 |
 ```
 
 ## Infoboxes
@@ -185,16 +217,9 @@ label = percent
 :::
 ```
 
-## Colored Tables
+## Collapsible TOC
 
-Add `<!-- rowclass:colorname -->` before a table row to color it. Available colors: blue, red, green, yellow, orange, purple, cyan, grey.
-
-```
-<!-- rowclass:green -->
-| Item | Value |
-| ---- | ----- |
-| Good | 100 |
-```
+The table of contents in the sidebar is collapsible. Click the header to expand/collapse. Controlled by `static/wiki.js`.
 
 ## Icons
 
@@ -218,14 +243,22 @@ Internal links use relative paths between HTML pages. From the home page, link t
 
 External links work the same way: `[example](https://example.com)`.
 
+## Footer
+
+Every page includes a footer with site statistics (page count, category count), navigation links, and copyright information.
+
+## Print Styles
+
+The wiki includes print-friendly CSS that hides navigation, sidebars, and decorative elements, leaving only the article content.
+
 ## Design
 
 The wiki follows these principles:
 
 - **Content first.** Navigation exists to serve content, not the other way around.
-- **Scannable structure.** Every page has a clear heading hierarchy. The table of contents in the sidebar reflects the page structure.
-- **Predictable layout.** Every page uses the same template. The title bar, sidebar, content area, and scrollbars are consistent.
-- **Static-first.** The only scripts are the animated desktop background and client-side search; there is no backend, no framework, and no build tool beyond Python.
+- **Scannable structure.** Every page has a clear heading hierarchy. The table of contents reflects the page structure.
+- **Predictable layout.** Every page uses the same template. The title bar, nav bar, sidebar, content area, and footer are consistent.
+- **Static-first.** The only scripts are the animated desktop background, client-side search, and TOC toggle; there is no backend, no framework, and no build tool beyond Python.
 
 ## Building
 
@@ -243,6 +276,10 @@ Site-wide settings live in `wiki/config.py` (MediaWiki-style `WG_` variables):
 
 - `WG_SITENAME`, `WG_TAGLINE`, `WG_TITLE_SUFFIX` — site identity
 - `WG_LOGO_MAIN`, `WG_LOGO_ICON` — logo paths
+- `WG_NAV_LINKS` — top navigation bar links
+- `WG_SIDEBAR_SECTIONS` — sidebar navigation sections
+- `WG_FEATURED_PAGE` — homepage featured article
+- `WG_DID_YOU_KNOW` — homepage "Did you know..." facts
 - `WG_TAGS` — article tag registry (`{{stub}}`, `{{wip}}`, etc.)
 - `WG_DEFAULT_THEME` (`light` | `dark` | `auto`), `WG_DEFAULT_ZOOM` — UI defaults
 - `WG_ZOOM_MIN`, `WG_ZOOM_MAX`, `WG_ZOOM_STEP` — zoom bounds

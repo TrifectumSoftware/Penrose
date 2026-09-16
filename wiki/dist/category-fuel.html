@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colored Tables - Penrose Wiki</title>
+  <title>Category: Fuel - Penrose Wiki</title>
   <link rel="stylesheet" href="static/style.css">
   <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
   <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
@@ -17,7 +17,7 @@
     <div class="window" role="main">
       <div class="titlebar">
         <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-        <span class="titlebar__text">Colored Tables</span>
+        <span class="titlebar__text">Category: Fuel</span>
         <div class="search">
           <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
           <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
@@ -49,70 +49,20 @@
               <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
             </div>
           </div>
-          <nav class="toc-nav" aria-label="Table of contents"><div class="toc"><div class="toc__header" role="button" tabindex="0"><h2 class="toc__title">Contents</h2><span class="toc__toggle">&#9660;</span></div><ul class="toc__list">
-<li class="toc__item"><a href="#colored-tables">Colored Tables</a></li>
-<li class="toc__item toc__item--sub"><a href="#syntax">Syntax</a></li>
-<li class="toc__item toc__item--sub"><a href="#available-colors">Available Colors</a></li>
-<li class="toc__item toc__item--sub"><a href="#example-resource-inventory">Example: Resource Inventory</a></li>
-<li class="toc__item toc__item--sub"><a href="#example-production-status">Example: Production Status</a></li>
-<li class="toc__item toc__item--sub"><a href="#example-color-reference">Example: Color Reference</a></li>
-</ul></div></nav>
+          
         </aside>
         <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
         <article class="content" id="content">
           <nav class="breadcrumbs" aria-label="Breadcrumb">
-<span class="breadcrumb"><a href="index.html">Home</a></span> &rsaquo; <span class="breadcrumb"><a href="category-examples.html">Examples</a></span> &rsaquo; <span class="breadcrumb"><span>Colored Tables</span></span>
+<span class="breadcrumb"><a href="index.html">Home</a></span> &rsaquo; <span class="breadcrumb"><span>Category: Fuel</span></span>
 </nav>
-          <h1 id="colored-tables">Colored Tables</h1>
-<p>Tables support colored rows using a comment directive placed before each row.</p>
-<h2 id="syntax">Syntax</h2>
-<p>Place a <code><!-- rowclass:colorname --></code> comment before the row you want to color:</p>
-<pre><code><!-- rowclass:blue -->
-| Resource | Amount |
-| -------- | ------ |
-| Coal | 100 |
-<!-- rowclass:green -->
-| Iron | 75 |
-<!-- rowclass:red -->
-| Copper | 50 |</code></pre>
-<h2 id="available-colors">Available Colors</h2>
-<p>blue, red, green, yellow, orange, purple, cyan, grey</p>
-<h2 id="example-resource-inventory">Example: Resource Inventory</h2>
-<table>
-<thead><tr><th>Resource</th><th>Stock</th><th>Capacity</th><th>Status</th></tr></thead>
-<tbody>
-<tr class="row-green"><td>Coal</td><td>2400</td><td>3000</td><td>Good</td></tr>
-<tr class="row-blue"><td>Iron ore</td><td>1800</td><td>3000</td><td>Good</td></tr>
-<tr class="row-yellow"><td>Copper ore</td><td>900</td><td>3000</td><td>Low</td></tr>
-<tr class="row-red"><td>Stone</td><td>200</td><td>3000</td><td>Critical</td></tr>
-</tbody>
-</table>
-<h2 id="example-production-status">Example: Production Status</h2>
-<table>
-<thead><tr><th>Machine</th><th>Output/hr</th><th>Efficiency</th><th>Status</th></tr></thead>
-<tbody>
-<tr class="row-green"><td>Drill #1</td><td>120 units</td><td>98%</td><td>Running</td></tr>
-<tr class="row-blue"><td>Drill #2</td><td>115 units</td><td>94%</td><td>Running</td></tr>
-<tr class="row-orange"><td>Furnace A</td><td>80 units</td><td>72%</td><td>Low fuel</td></tr>
-<tr class="row-red"><td>Furnace B</td><td>0 units</td><td>0%</td><td>Offline</td></tr>
-</tbody>
-</table>
-<h2 id="example-color-reference">Example: Color Reference</h2>
-<table>
-<thead><tr><th>Color</th><th>Class</th><th>Use Case</th></tr></thead>
-<tbody>
-<tr class="row-blue"><td>Blue</td><td><code>blue</code></td><td>Information, neutral data</td></tr>
-<tr class="row-green"><td>Green</td><td><code>green</code></td><td>Success, good status</td></tr>
-<tr class="row-yellow"><td>Yellow</td><td><code>yellow</code></td><td>Warning, low values</td></tr>
-<tr class="row-red"><td>Red</td><td><code>red</code></td><td>Error, critical alerts</td></tr>
-<tr class="row-orange"><td>Orange</td><td><code>orange</code></td><td>Caution, moderate concern</td></tr>
-<tr class="row-purple"><td>Purple</td><td><code>purple</code></td><td>Special, highlighted items</td></tr>
-<tr class="row-cyan"><td>Cyan</td><td><code>cyan</code></td><td>Alternative neutral</td></tr>
-<tr class="row-grey"><td>Grey</td><td><code>grey</code></td><td>Inactive, disabled</td></tr>
-</tbody>
-</table>
+          <h1 id="category-fuel">Category: Fuel</h1>
+<p class="cat-count">1 page in this category.</p>
+<ul class="cat-list">
+<li class="cat-page"><img class="cat-page__icon" src="static/icons/w98_battery.png" alt=""><a href="coal.html">Coal</a></li>
+</ul>
           
-          <div class="related"><h3>Related articles</h3><ul><li><a href="bar-charts.html">Bar Charts</a></li><li><a href="donut-charts.html">Donut Charts</a></li><li><a href="gauges.html">Gauges</a></li><li><a href="histograms.html">Histograms</a></li><li><a href="line-charts.html">Line Charts</a></li></ul></div>
+          
         </article>
       </div>
 

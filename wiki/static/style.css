@@ -270,7 +270,7 @@ body {
 }
 
 /* ============================================================
-   Search box (form) — home page and results page
+   Search box (form) -- home page and results page
    ============================================================ */
 .searchbox {
   display: flex;
@@ -545,7 +545,6 @@ body {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
-  image-rendering: pixelated;
 }
 
 .content img.icon {
@@ -643,7 +642,7 @@ html.theme-dark .content tr.row-cyan td    { background: #1a3e3e; }
 html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
 
 /* ============================================================
-   Charts — shared
+   Charts -- shared
    ============================================================ */
 .chart {
   margin: 12px 0;
@@ -717,7 +716,7 @@ html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
 }
 
 /* ============================================================
-   Infobox — right-floated summary box (Wikimedia-style)
+   Infobox -- right-floated summary box (Wikimedia-style)
    ============================================================ */
 .infobox {
   float: right;
@@ -785,14 +784,14 @@ html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
   font-style: italic;
 }
 
-/* Thumbnail — floating image with caption */
+/* Thumbnail -- floating image with caption */
 .content figure.thumb {
   float: right;
   clear: right;
   margin: 0 0 10px 12px;
-  border: 1px solid;
-  border-color: var(--win-border-light) var(--win-border-shadow)
-              var(--win-border-shadow) var(--win-border-light);
+  border: 2px solid;
+  border-color: var(--win-border-shadow) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-shadow);
   background: var(--win-grey);
   padding: 4px;
   max-width: 40%;
@@ -806,6 +805,7 @@ html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  height: auto;
 }
 
 .content figure.thumb figcaption {
@@ -1221,6 +1221,11 @@ html.theme-dark .tag--wip {
     width: 120px;
   }
 
+  .featured__icon {
+    max-width: 48px;
+    max-height: 48px;
+  }
+
   .infobox {
     float: none;
     width: 100%;
@@ -1369,8 +1374,9 @@ html.theme-dark .tag--wip {
 .featured__icon {
   width: 64px;
   height: 64px;
-  image-rendering: pixelated;
   flex-shrink: 0;
+  object-fit: contain;
+  border: 1px solid var(--win-border-shadow);
 }
 
 .featured__body {
@@ -1684,13 +1690,6 @@ html.theme-dark .tag--wip {
 
 .toc__item--sub {
   padding-left: 10px;
-}
-
-/* ============================================================
-   Site stats
-   ============================================================ */
-.site-stats {
-  margin-bottom: 4px;
 }
 
 /* ============================================================

@@ -85,11 +85,7 @@ def parse_frontmatter(md):
     return meta, body
 
 
-def word_count(text):
-    return len(text.split())
-
-
-# ── Navigation ────────────────────────────────────────────────────
+# -- Navigation --------------------------------------------------------
 
 def build_nav_bar(current_name):
     links = []
@@ -267,21 +263,14 @@ def build_related_articles(page, pages):
 # ── Page metadata ─────────────────────────────────────────────────
 
 def build_page_metadata(page):
-    md = page.get("md", "")
-    wc = word_count(md)
     cats = page.get("categories", [])
     cat_links = []
     for c in cats:
         slug = c.lower().replace(" ", "-")
         cat_links.append(f'<a href="category-{slug}.html">{c}</a>')
-    meta_parts = []
-    if wc > 0:
-        meta_parts.append(f'{wc} words')
-    if cat_links:
-        meta_parts.append("Categories: " + ", ".join(cat_links))
-    if not meta_parts:
+    if not cat_links:
         return ""
-    return '<div class="page-meta">' + " &middot; ".join(meta_parts) + "</div>"
+    return '<div class="page-meta">Categories: ' + ", ".join(cat_links) + "</div>"
 
 
 # ── Site stats ────────────────────────────────────────────────────
@@ -295,11 +284,7 @@ def build_site_stats(pages):
 
 
 def build_footer(pages):
-    stats = build_site_stats(pages)
     return f"""<footer class="wiki-footer">
-  <div class="wiki-footer__top">
-    {stats}
-  </div>
   <div class="wiki-footer__links">
     <a href="index.html">Home</a>
     <a href="contents.html">Contents</a>
@@ -309,7 +294,7 @@ def build_footer(pages):
     <a href="{config.WG_SOURCE_URL}" target="_blank" rel="noopener">Source</a>
   </div>
   <div class="wiki-footer__copy">
-    Content is available under the Penrose Wiki license.
+    Content is available under CC0 1.0 Universal.
   </div>
 </footer>"""
 
@@ -585,13 +570,12 @@ def parse_histogram(lines):
         return ""
 
     chart_w, chart_h = 400, 200
-    margin_l, margin_b = 50, 40
-    inner_w = chart_w - margin_l - 20
+    margin_l, margin_r, margin_t, margin_b = 50, 20, 10, 40
+    inner_w = chart_w - margin_l - margin_r
     inner_h = chart_h - margin_t - margin_b
     n = len(items)
     bar_w = inner_w / n
     gap = max(1, bar_w * 0.1)
-    margin_t = 10
 
     bars = []
     for i, (label, value) in enumerate(items):

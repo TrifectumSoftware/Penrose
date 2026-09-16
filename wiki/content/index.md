@@ -6,4 +6,8 @@ title: Welcome
 
 {{randompage}}
 
+{{dyk}}
+
+{{featured}}
+
 {{topics}}

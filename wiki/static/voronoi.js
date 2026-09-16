@@ -6,7 +6,7 @@
    and scrolling stay fast.
 
    Site positions are computed once per frame on the CPU and
-   passed as uniforms — the fragment shader does no trig/hash.
+   passed as uniforms -- the fragment shader does no trig/hash.
    ============================================================ */
 (function () {
   var canvas = document.getElementById("voronoi-bg");

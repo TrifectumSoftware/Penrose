@@ -270,7 +270,7 @@ body {
 }
 
 /* ============================================================
-   Search box (form) — home page and results page
+   Search box (form) -- home page and results page
    ============================================================ */
 .searchbox {
   display: flex;
@@ -545,7 +545,6 @@ body {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
-  image-rendering: pixelated;
 }
 
 .content img.icon {
@@ -643,7 +642,7 @@ html.theme-dark .content tr.row-cyan td    { background: #1a3e3e; }
 html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
 
 /* ============================================================
-   Charts — shared
+   Charts -- shared
    ============================================================ */
 .chart {
   margin: 12px 0;
@@ -717,7 +716,7 @@ html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
 }
 
 /* ============================================================
-   Infobox — right-floated summary box (Wikimedia-style)
+   Infobox -- right-floated summary box (Wikimedia-style)
    ============================================================ */
 .infobox {
   float: right;
@@ -785,14 +784,14 @@ html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
   font-style: italic;
 }
 
-/* Thumbnail — floating image with caption */
+/* Thumbnail -- floating image with caption */
 .content figure.thumb {
   float: right;
   clear: right;
   margin: 0 0 10px 12px;
-  border: 1px solid;
-  border-color: var(--win-border-light) var(--win-border-shadow)
-              var(--win-border-shadow) var(--win-border-light);
+  border: 2px solid;
+  border-color: var(--win-border-shadow) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-shadow);
   background: var(--win-grey);
   padding: 4px;
   max-width: 40%;
@@ -806,6 +805,7 @@ html.theme-dark .content tr.row-grey td    { background: #2a2a2a; }
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  height: auto;
 }
 
 .content figure.thumb figcaption {
@@ -1221,6 +1221,11 @@ html.theme-dark .tag--wip {
     width: 120px;
   }
 
+  .featured__icon {
+    max-width: 48px;
+    max-height: 48px;
+  }
+
   .infobox {
     float: none;
     width: 100%;
@@ -1230,5 +1235,523 @@ html.theme-dark .tag--wip {
 
   .tag {
     flex-wrap: wrap;
+  }
+}
+
+/* ============================================================
+   Top navigation bar
+   ============================================================ */
+.nav-bar {
+  display: flex;
+  gap: 0;
+  background: var(--win-grey);
+  border-bottom: 2px solid;
+  border-color: var(--win-border-shadow);
+  padding: 0 4px;
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.nav-bar__link {
+  display: block;
+  padding: 4px 12px;
+  font-family: var(--win-font);
+  font-size: var(--font-11);
+  color: var(--win-black);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom: none;
+  white-space: nowrap;
+  position: relative;
+  top: 2px;
+  border-radius: 0;
+}
+
+.nav-bar__link:hover {
+  background: var(--win-light-grey);
+}
+
+.nav-bar__link--active {
+  background: var(--win-white);
+  border-color: var(--win-border-shadow) var(--win-border-shadow) var(--win-white) var(--win-border-shadow);
+  font-weight: bold;
+}
+
+/* ============================================================
+   Breadcrumbs
+   ============================================================ */
+.breadcrumbs {
+  font-size: var(--font-10);
+  color: var(--win-dark-grey);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.breadcrumb a {
+  color: var(--win-blue);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Sidebar sections
+   ============================================================ */
+.sidebar-section {
+  margin-bottom: 8px;
+}
+
+.sidebar-section h3 {
+  font-size: var(--font-10);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--win-black);
+  background: var(--win-grey);
+  padding: 2px 4px;
+  margin-bottom: 2px;
+  border: 1px solid;
+  border-color: var(--win-border-light) var(--win-border-dark)
+              var(--win-border-dark) var(--win-border-light);
+}
+
+.sidebar-section ul {
+  list-style: none;
+  margin: 0;
+}
+
+.sidebar-section li {
+  margin: 1px 0;
+}
+
+.sidebar-section a {
+  display: block;
+  color: var(--win-black);
+  text-decoration: none;
+  padding: 1px 4px;
+  font-size: var(--font-11);
+}
+
+.sidebar-section a:hover {
+  background: var(--win-blue);
+  color: var(--win-accent-text);
+}
+
+.sidebar-section a.active {
+  background: var(--win-blue);
+  color: var(--win-accent-text);
+  font-weight: bold;
+}
+
+/* ============================================================
+   Featured article
+   ============================================================ */
+.featured {
+  margin: 12px 0;
+}
+
+.featured h2 {
+  font-size: var(--font-15);
+  font-weight: bold;
+  margin-bottom: 8px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--win-dark-grey);
+}
+
+.featured__card {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border: 2px solid;
+  border-color: var(--win-border-light) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-light);
+  background: var(--win-white);
+}
+
+.featured__icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+  border: 1px solid var(--win-border-shadow);
+}
+
+.featured__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.featured__title {
+  display: block;
+  font-size: var(--font-14);
+  font-weight: bold;
+  color: var(--win-blue);
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.featured__title:hover {
+  text-decoration: underline;
+}
+
+.featured__excerpt {
+  font-size: var(--font-11);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.featured__link {
+  font-size: var(--font-11);
+  color: var(--win-blue);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Quick navigation grid
+   ============================================================ */
+.quick-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.quick-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  text-decoration: none;
+  color: var(--win-black);
+  border: 2px solid;
+  border-color: var(--win-border-light) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-light);
+  background: var(--win-white);
+  text-align: center;
+}
+
+.quick-nav__item:hover {
+  background: var(--win-light-grey);
+}
+
+.quick-nav__icon {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+.quick-nav__label {
+  font-size: var(--font-10);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   Did you know...
+   ============================================================ */
+.dyk {
+  margin: 16px 0;
+  padding: 10px;
+  border: 1px solid var(--win-border-dark);
+  background: var(--win-white);
+}
+
+.dyk h2 {
+  font-size: var(--font-14);
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.dyk__list {
+  list-style: disc;
+  margin: 0 0 0 22px;
+  padding: 0;
+}
+
+.dyk__list li {
+  margin: 4px 0;
+  font-size: var(--font-11);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Wiki footer
+   ============================================================ */
+.wiki-footer {
+  border-top: 2px solid;
+  border-color: var(--win-border-shadow);
+  padding: 10px 14px;
+  margin-top: 8px;
+  font-size: var(--font-10);
+  color: var(--win-dark-grey);
+}
+
+.wiki-footer__top {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.wiki-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-bottom: 6px;
+}
+
+.wiki-footer__links a {
+  color: var(--win-blue);
+  text-decoration: none;
+}
+
+.wiki-footer__links a:hover {
+  text-decoration: underline;
+}
+
+.wiki-footer__copy {
+  font-size: var(--font-9);
+  color: var(--win-dark-grey);
+}
+
+/* ============================================================
+   Related articles
+   ============================================================ */
+.related {
+  margin-top: 16px;
+  padding-top: 8px;
+  border-top: 1px solid var(--win-dark-grey);
+}
+
+.related h3 {
+  font-size: var(--font-12);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.related ul {
+  list-style: disc;
+  margin: 0 0 0 22px;
+  padding: 0;
+}
+
+.related li {
+  margin: 2px 0;
+  font-size: var(--font-11);
+}
+
+.related a {
+  color: var(--win-blue);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Page metadata
+   ============================================================ */
+.page-meta {
+  margin-top: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--win-border-light);
+  font-size: var(--font-10);
+  color: var(--win-dark-grey);
+}
+
+.page-meta a {
+  color: var(--win-blue);
+  text-decoration: none;
+}
+
+.page-meta a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Category pages
+   ============================================================ */
+.cat-count {
+  font-size: var(--font-11);
+  color: var(--win-dark-grey);
+  margin-bottom: 8px;
+}
+
+.cat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cat-page {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--win-border-light);
+}
+
+.cat-page__icon {
+  width: 20px;
+  height: 20px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.cat-page a {
+  color: var(--win-blue);
+  text-decoration: underline;
+  font-size: var(--font-11);
+}
+
+/* ============================================================
+   All pages list
+   ============================================================ */
+.all-pages__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.all-pages__list li {
+  padding: 3px 0;
+  border-bottom: 1px solid var(--win-border-light);
+  font-size: var(--font-11);
+}
+
+.all-pages__cats {
+  color: var(--win-dark-grey);
+  font-size: var(--font-10);
+}
+
+/* ============================================================
+   Collapsible TOC
+   ============================================================ */
+.toc {
+  margin-bottom: 8px;
+}
+
+.toc__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toc__title {
+  font-size: var(--font-10);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--win-black);
+  background: var(--win-grey);
+  padding: 2px 4px;
+  border: 1px solid;
+  border-color: var(--win-border-light) var(--win-border-dark)
+              var(--win-border-dark) var(--win-border-light);
+  margin: 0;
+}
+
+.toc__toggle {
+  font-size: 8px;
+  color: var(--win-black);
+  transition: transform 0.15s;
+}
+
+.toc.collapsed .toc__toggle {
+  transform: rotate(-90deg);
+}
+
+.toc.collapsed .toc__list {
+  display: none;
+}
+
+.toc__list {
+  list-style: none;
+  margin: 4px 0 0 0;
+  padding: 0;
+}
+
+.toc__item {
+  margin: 1px 0;
+}
+
+.toc__item a {
+  display: block;
+  color: var(--win-dark-grey);
+  font-size: var(--font-10);
+  text-decoration: none;
+  padding: 1px 4px;
+}
+
+.toc__item a:hover {
+  color: var(--win-blue);
+}
+
+.toc__item--sub {
+  padding-left: 10px;
+}
+
+/* ============================================================
+   Print styles
+   ============================================================ */
+@media print {
+  .voronoi-bg,
+  .sidebar,
+  .sidebar-backdrop,
+  .sidebar-toggle,
+  .nav-bar,
+  .titlebar,
+  .search,
+  .theme-toggle,
+  .zoom-control,
+  .toc-nav,
+  .wiki-footer,
+  .hero-actions,
+  .tag,
+  .skip-link {
+    display: none !important;
+  }
+
+  .desktop {
+    padding: 0;
+  }
+
+  .window {
+    height: auto !important;
+    max-width: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .window-body {
+    flex-direction: column !important;
+    overflow: visible !important;
+  }
+
+  .content {
+    overflow: visible !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .infobox {
+    page-break-inside: avoid;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  .content a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
   }
 }

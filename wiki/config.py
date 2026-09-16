@@ -71,7 +71,7 @@ WG_TAGS = {
 
 # --- Homepage featured article ---
 # Set to a page name (stem) to feature it on the homepage, or None.
-WG_FEATURED_PAGE = "drill"
+WG_FEATURED_PAGE = "furnace"
 
 # --- "Did you know..." facts ---
 # Randomly displayed on the homepage. Each is a plain-text string

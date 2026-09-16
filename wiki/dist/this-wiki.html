@@ -25,12 +25,21 @@
         </div>
       </div>
 
+      <nav class="nav-bar">
+<a class="nav-bar__link" href="index.html">Home</a>
+<a class="nav-bar__link" href="contents.html">Contents</a>
+<a class="nav-bar__link" href="all-pages.html">All Pages</a>
+</nav>
+
       <div class="window-body">
         <aside class="sidebar">
           <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
             <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
             <span class="sidebar-brand__text">penrose.wiki</span>
           </a>
+          <div class="sidebar-section"><h3>Main</h3><ul><li><a class="" href="index.html">Home</a></li><li><a class="" href="contents.html">Contents</a></li><li><a class="" href="all-pages.html">All Pages</a></li><li><a class="" href="random.html">Random Page</a></li></ul></div>
+<div class="sidebar-section"><h3>Topics</h3><ul><li><a class="" href="category-machines.html">Machines</a></li><li><a class="" href="category-resources.html">Resources</a></li><li><a class="" href="category-meta.html">Meta</a></li></ul></div>
+<div class="sidebar-section"><h3>Community</h3><ul><li><a href="https://github.com/anomalyco/penrose" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://github.com/anomalyco/penrose/issues" target="_blank" rel="noopener">Report a Bug</a></li></ul></div>
           <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
           <div class="zoom-control">
             <span class="zoom-control__label">Zoom</span>
@@ -40,35 +49,44 @@
               <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
             </div>
           </div>
-          <nav class="toc-nav"><h2>Contents</h2><ul>
-<li><a href="#this-wiki">This Wiki</a></li>
-  <li><a href="#format">Format</a></li>
-  <li><a href="#adding-a-page">Adding a Page</a></li>
-  <li><a href="#page-metadata">Page Metadata</a></li>
-  <li><a href="#article-tags">Article Tags</a></li>
-  <li><a href="#markdown-syntax">Markdown Syntax</a></li>
-  <li><a href="#tables">Tables</a></li>
-  <li><a href="#infoboxes">Infoboxes</a></li>
-  <li><a href="#charts">Charts</a></li>
-    <li><a href="#pie-chart">Pie Chart</a></li>
-    <li><a href="#donut-chart">Donut Chart</a></li>
-    <li><a href="#bar-chart">Bar Chart</a></li>
-    <li><a href="#histogram">Histogram</a></li>
-    <li><a href="#line-chart">Line Chart</a></li>
-    <li><a href="#scatter-plot">Scatter Plot</a></li>
-    <li><a href="#gauge">Gauge</a></li>
-  <li><a href="#colored-tables">Colored Tables</a></li>
-  <li><a href="#icons">Icons</a></li>
-  <li><a href="#search">Search</a></li>
-  <li><a href="#links">Links</a></li>
-  <li><a href="#design">Design</a></li>
-  <li><a href="#building">Building</a></li>
-  <li><a href="#configuration">Configuration</a></li>
-  <li><a href="#hosting">Hosting</a></li>
-</ul></nav>
+          <nav class="toc-nav" aria-label="Table of contents"><div class="toc"><div class="toc__header" role="button" tabindex="0"><h2 class="toc__title">Contents</h2><span class="toc__toggle">&#9660;</span></div><ul class="toc__list">
+<li class="toc__item"><a href="#this-wiki">This Wiki</a></li>
+<li class="toc__item toc__item--sub"><a href="#format">Format</a></li>
+<li class="toc__item toc__item--sub"><a href="#adding-a-page">Adding a Page</a></li>
+<li class="toc__item toc__item--sub"><a href="#page-metadata">Page Metadata</a></li>
+<li class="toc__item toc__item--sub"><a href="#categories">Categories</a></li>
+<li class="toc__item toc__item--sub"><a href="#navigation">Navigation</a></li>
+<li class="toc__item toc__item--sub"><a href="#homepage-features">Homepage Features</a></li>
+<li class="toc__item toc__item--sub"><a href="#article-tags">Article Tags</a></li>
+<li class="toc__item toc__item--sub"><a href="#markdown-syntax">Markdown Syntax</a></li>
+<li class="toc__item toc__item--sub"><a href="#tables">Tables</a></li>
+<li class="toc__item toc__item--sub"><a href="#colored-tables">Colored Tables</a></li>
+<li class="toc__item toc__item--sub"><a href="#infoboxes">Infoboxes</a></li>
+<li class="toc__item toc__item--sub"><a href="#charts">Charts</a></li>
+<li class="toc__item toc__item--sub"><a href="#pie-chart">Pie Chart</a></li>
+<li class="toc__item toc__item--sub"><a href="#donut-chart">Donut Chart</a></li>
+<li class="toc__item toc__item--sub"><a href="#bar-chart">Bar Chart</a></li>
+<li class="toc__item toc__item--sub"><a href="#histogram">Histogram</a></li>
+<li class="toc__item toc__item--sub"><a href="#line-chart">Line Chart</a></li>
+<li class="toc__item toc__item--sub"><a href="#scatter-plot">Scatter Plot</a></li>
+<li class="toc__item toc__item--sub"><a href="#gauge">Gauge</a></li>
+<li class="toc__item toc__item--sub"><a href="#collapsible-toc">Collapsible TOC</a></li>
+<li class="toc__item toc__item--sub"><a href="#icons">Icons</a></li>
+<li class="toc__item toc__item--sub"><a href="#search">Search</a></li>
+<li class="toc__item toc__item--sub"><a href="#links">Links</a></li>
+<li class="toc__item toc__item--sub"><a href="#footer">Footer</a></li>
+<li class="toc__item toc__item--sub"><a href="#print-styles">Print Styles</a></li>
+<li class="toc__item toc__item--sub"><a href="#design">Design</a></li>
+<li class="toc__item toc__item--sub"><a href="#building">Building</a></li>
+<li class="toc__item toc__item--sub"><a href="#configuration">Configuration</a></li>
+<li class="toc__item toc__item--sub"><a href="#hosting">Hosting</a></li>
+</ul></div></nav>
         </aside>
         <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
         <article class="content" id="content">
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+<span class="breadcrumb"><a href="index.html">Home</a></span> &rsaquo; <span class="breadcrumb"><a href="category-meta.html">Meta</a></span> &rsaquo; <span class="breadcrumb"><span>This Wiki</span></span>
+</nav>
           <h1 id="this-wiki">This Wiki</h1>
 <p>How this wiki works, and how to contribute to it.</p>
 <h2 id="format">Format</h2>
@@ -84,15 +102,66 @@
   <li>Commit the new file and the updated <code>dist/</code> output</li>
 </ul>
 <h2 id="page-metadata">Page Metadata</h2>
-<p>An optional front-matter block at the top of the file sets the page title, topic, and icon:</p>
+<p>An optional front-matter block at the top of the file sets page properties:</p>
 <pre><code>---
 title: My Page
 topic: Machines
+categories: Machines, Extraction
 icon: w98_gears.png
 ---
 
 # My Page</code></pre>
-<p><code>topic</code> groups the page on the main page's topic grid; <code>icon</code> is the icon shown beside it (any file in <code>static/icons/</code>).</p>
+<ul>
+  <li><code>title</code> — page title shown in the title bar and breadcrumbs</li>
+  <li><code>topic</code> — groups the page on the homepage quick-nav grid and generates category pages</li>
+  <li><code>categories</code> — comma-separated list of categories; generates <code>category-*.html</code> pages</li>
+  <li><code>icon</code> — icon shown beside the page in listings (any file in <code>static/icons/</code>)</li>
+</ul>
+<h2 id="categories">Categories</h2>
+<p>Pages tagged with <code>categories</code> are automatically grouped into category pages. Each unique category gets its own <code>category-name.html</code> page listing all member pages. The sidebar shows category links under the "Topics" section.</p>
+<h2 id="navigation">Navigation</h2>
+<p>The wiki includes several navigation elements:</p>
+<ul>
+  <li><strong>Top nav bar</strong> — horizontal tabs below the titlebar for major sections (Home, Contents, All Pages)</li>
+  <li><strong>Sidebar sections</strong> — grouped navigation links (Main, Topics, Community)</li>
+  <li><strong>Breadcrumbs</strong> — <code>Home > Topic > Page</code> trail on every article</li>
+  <li><strong>Related articles</strong> — automatically suggested at the bottom of each page based on shared categories/topic</li>
+  <li><strong>Random page</strong> — button on the homepage redirects to a random page</li>
+</ul>
+<p>All navigation is configured in <code>wiki/config.py</code> via <code>WG_NAV_LINKS</code> and <code>WG_SIDEBAR_SECTIONS</code>.</p>
+<h2 id="homepage-features">Homepage Features</h2>
+<p>The homepage supports special template directives:</p>
+<ul>
+  <li><code>{{hero}}</code> — logo and tagline block</li>
+  <li><code><div class="hero-actions">
+  <button id="random-page" class="random-btn" type="button">
+    <img src="static/icons/w98_gears.png" alt=""> Random page
+  </button>
+</div></code> — random page button</li>
+  <li><code><div class="dyk">
+  <h2>Did you know&hellip;</h2>
+  <ul class="dyk__list">
+    <li>Drills extract resources at a rate of 1 per tick?</li><li>A furnace can smelt iron ore into iron plates using coal as fuel?</li><li>Research ticks unlock new technology at the research bench?</li><li>Coal is the primary fuel source in the game?</li><li>The wiki is built entirely in Python with zero dependencies?</li>
+  </ul>
+</div></code> — "Did you know..." facts (configured in <code>WG_DID_YOU_KNOW</code>)</li>
+  <li><code><div class="featured">
+  <h2>Featured Article</h2>
+  <div class="featured__card">
+    <img class="featured__icon" src="static/icons/w98_gears.png" alt="">
+    <div class="featured__body">
+      <a class="featured__title" href="furnace.html">Furnace</a>
+      <p class="featured__excerpt">A furnace is a machine that smelts raw ore into refined metal. It consumes fuel and runs a single recipe at a time. How it works Feed a furnace with ore and fuel. It stops automatically when its outpu...</p>
+      <a class="featured__link" href="furnace.html">Read more &rarr;</a>
+    </div>
+  </div>
+</div></code> — featured article card (configured in <code>WG_FEATURED_PAGE</code>)</li>
+  <li><code><div class="quick-nav">
+<a class="quick-nav__item" href="category-examples.html"><img class="quick-nav__icon" src="static/icons/w98_bar_graph.png" alt=""><span class="quick-nav__label">Examples</span></a>
+<a class="quick-nav__item" href="category-machines.html"><img class="quick-nav__icon" src="static/icons/w98_hardware.png" alt=""><span class="quick-nav__label">Machines</span></a>
+<a class="quick-nav__item" href="category-meta.html"><img class="quick-nav__icon" src="static/icons/w98_homepage.png" alt=""><span class="quick-nav__label">Meta</span></a>
+<a class="quick-nav__item" href="category-resources.html"><img class="quick-nav__icon" src="static/icons/w98_battery.png" alt=""><span class="quick-nav__label">Resources</span></a>
+</div></code> — quick navigation icon grid</li>
+</ul>
 <h2 id="article-tags">Article Tags</h2>
 <p>Banners like "This article is a stub" are added with a tag directive on its own line:</p>
 <ul>
@@ -120,11 +189,12 @@ icon: w98_gears.png
 <pre><code>| Page | Description |
 | Welcome | The home page |
 | This Wiki | Documentation |</code></pre>
-<p>Or with an explicit separator (same result):</p>
-<pre><code>| Page | Description |
-| ---- | ----------- |
-| Welcome | The home page |
-| This Wiki | Documentation |</code></pre>
+<h2 id="colored-tables">Colored Tables</h2>
+<p>Add <code><!-- rowclass:colorname --></code> before a table row to color it. Available colors: blue, red, green, yellow, orange, purple, cyan, grey.</p>
+<pre><code><!-- rowclass:green -->
+| Item | Value |
+| ---- | ----- |
+| Good | 100 |</code></pre>
 <h2 id="infoboxes">Infoboxes</h2>
 <p>A right-floated summary box, the classic Wikimedia element:</p>
 <pre><code>::: infobox
@@ -185,12 +255,8 @@ value = 75
 max = 100
 label = percent
 :::</code></pre>
-<h2 id="colored-tables">Colored Tables</h2>
-<p>Add <code><!-- rowclass:colorname --></code> before a table row to color it. Available colors: blue, red, green, yellow, orange, purple, cyan, grey.</p>
-<pre><code><!-- rowclass:green -->
-| Item | Value |
-| ---- | ----- |
-| Good | 100 |</code></pre>
+<h2 id="collapsible-toc">Collapsible TOC</h2>
+<p>The table of contents in the sidebar is collapsible. Click the header to expand/collapse. Controlled by <code>static/wiki.js</code>.</p>
 <h2 id="icons">Icons</h2>
 <p>A library of Win95 icons ships in <code>static/icons/</code> (<code>.png</code>). Reference them from any page:</p>
 <ul>
@@ -205,13 +271,17 @@ label = percent
 <h2 id="links">Links</h2>
 <p>Internal links use relative paths between HTML pages. From the home page, link to another page with <code>[page name](page-name.html)</code>.</p>
 <p>External links work the same way: <code>[example](https://example.com)</code>.</p>
+<h2 id="footer">Footer</h2>
+<p>Every page includes a footer with site statistics (page count, category count), navigation links, and copyright information.</p>
+<h2 id="print-styles">Print Styles</h2>
+<p>The wiki includes print-friendly CSS that hides navigation, sidebars, and decorative elements, leaving only the article content.</p>
 <h2 id="design">Design</h2>
 <p>The wiki follows these principles:</p>
 <ul>
   <li><strong>Content first.</strong> Navigation exists to serve content, not the other way around.</li>
-  <li><strong>Scannable structure.</strong> Every page has a clear heading hierarchy. The table of contents in the sidebar reflects the page structure.</li>
-  <li><strong>Predictable layout.</strong> Every page uses the same template. The title bar, sidebar, content area, and scrollbars are consistent.</li>
-  <li><strong>Static-first.</strong> The only scripts are the animated desktop background and client-side search; there is no backend, no framework, and no build tool beyond Python.</li>
+  <li><strong>Scannable structure.</strong> Every page has a clear heading hierarchy. The table of contents reflects the page structure.</li>
+  <li><strong>Predictable layout.</strong> Every page uses the same template. The title bar, nav bar, sidebar, content area, and footer are consistent.</li>
+  <li><strong>Static-first.</strong> The only scripts are the animated desktop background, client-side search, and TOC toggle; there is no backend, no framework, and no build tool beyond Python.</li>
 </ul>
 <h2 id="building">Building</h2>
 <p>The build script requires Python 3 and no external dependencies.</p>
@@ -222,6 +292,10 @@ label = percent
 <ul>
   <li><code>WG_SITENAME</code>, <code>WG_TAGLINE</code>, <code>WG_TITLE_SUFFIX</code> — site identity</li>
   <li><code>WG_LOGO_MAIN</code>, <code>WG_LOGO_ICON</code> — logo paths</li>
+  <li><code>WG_NAV_LINKS</code> — top navigation bar links</li>
+  <li><code>WG_SIDEBAR_SECTIONS</code> — sidebar navigation sections</li>
+  <li><code>WG_FEATURED_PAGE</code> — homepage featured article</li>
+  <li><code>WG_DID_YOU_KNOW</code> — homepage "Did you know..." facts</li>
   <li><code>WG_TAGS</code> — article tag registry (<code>{{stub}}</code>, <code>{{wip}}</code>, etc.)</li>
   <li><code>WG_DEFAULT_THEME</code> (<code>light</code> | <code>dark</code> | <code>auto</code>), <code>WG_DEFAULT_ZOOM</code> — UI defaults</li>
   <li><code>WG_ZOOM_MIN</code>, <code>WG_ZOOM_MAX</code>, <code>WG_ZOOM_STEP</code> — zoom bounds</li>
@@ -231,13 +305,30 @@ label = percent
 <p>Theme and zoom choices are saved to <code>localStorage</code> (with a cookie fallback) and carried in the URL on navigation, so they stay consistent across all pages and browser restarts.</p>
 <h2 id="hosting">Hosting</h2>
 <p>Since the built output is committed to the repository, any static file host can serve the wiki directly from the <code>dist/</code> directory. GitHub Pages, Netlify, and similar services can be configured to serve from the <code>wiki/dist/</code> path.</p>
+          <div class="page-meta">Categories: <a href="category-meta.html">Meta</a></div>
+          <div class="related"><h3>Related articles</h3><ul><li><a href="contents.html">Contents</a></li></ul></div>
         </article>
       </div>
+
+      <footer class="wiki-footer">
+  <div class="wiki-footer__links">
+    <a href="index.html">Home</a>
+    <a href="contents.html">Contents</a>
+    <a href="all-pages.html">All Pages</a>
+    <a href="search.html">Search</a>
+    <a href="this-wiki.html">About</a>
+    <a href="https://github.com/anomalyco/penrose" target="_blank" rel="noopener">Source</a>
+  </div>
+  <div class="wiki-footer__copy">
+    Content is available under CC0 1.0 Universal.
+  </div>
+</footer>
     </div>
   </div>
 
   <script src="static/voronoi.js"></script>
   <script src="static/search-index.js"></script>
   <script src="static/search.js"></script>
+  <script src="static/wiki.js"></script>
 </body>
 </html>
