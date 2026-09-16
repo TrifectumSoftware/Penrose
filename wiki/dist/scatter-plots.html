@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatter Plots - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">Scatter Plots</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <nav class="toc-nav"><h2>Contents</h2><ul>
+<li><a href="#scatter-plots">Scatter Plots</a></li>
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#example-drill-depth-vs-output">Example: Drill Depth vs Output</a></li>
+  <li><a href="#example-furnace-temperature-vs-quality">Example: Furnace Temperature vs Quality</a></li>
+  <li><a href="#example-belt-speed-vs-throughput">Example: Belt Speed vs Throughput</a></li>
+</ul></nav>
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <h1 id="scatter-plots">Scatter Plots</h1>
+<p>Scatter plots show correlations between two variables. Use <code>x,y</code> pairs.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code>::: scatterplot
+title = Correlation
+Dataset = 1,2 3,5 5,8 7,11 9,14
+:::</code></pre>
+<h2 id="example-drill-depth-vs-output">Example: Drill Depth vs Output</h2>
+<div class="chart"><div class="chart__title">Drill Depth vs Output Rate</div><svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50.0" cy="240.0" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="149.0" cy="212.5" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="215.0" cy="194.2" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="281.0" cy="180.4" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="380.0" cy="166.7" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="50.0" cy="157.5" r="4" fill="#dc3912" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="149.0" cy="102.5" r="4" fill="#dc3912" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="215.0" cy="65.8" r="4" fill="#dc3912" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="281.0" cy="42.9" r="4" fill="#dc3912" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="380.0" cy="20.0" r="4" fill="#dc3912" stroke="var(--win-white)" stroke-width="1"/>
+<line x1="50" y1="20" x2="50" y2="240" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<line x1="50" y1="240" x2="380" y2="240" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<text x="50.0" y="254" text-anchor="middle" class="barchart-label">5</text>
+<text x="44" y="244.0" text-anchor="end" class="barchart-value">12</text>
+<text x="132.5" y="254" text-anchor="middle" class="barchart-label">7.5</text>
+<text x="44" y="189.0" text-anchor="end" class="barchart-value">24</text>
+<text x="215.0" y="254" text-anchor="middle" class="barchart-label">10</text>
+<text x="44" y="134.0" text-anchor="end" class="barchart-value">36</text>
+<text x="297.5" y="254" text-anchor="middle" class="barchart-label">12.5</text>
+<text x="44" y="79.0" text-anchor="end" class="barchart-value">48</text>
+<text x="380.0" y="254" text-anchor="middle" class="barchart-label">15</text>
+<text x="44" y="24.0" text-anchor="end" class="barchart-value">60</text>
+</svg><div class="pie-legend"><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#3366cc"></span>Small drill</span><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#dc3912"></span>Large drill</span></div></div>
+<h2 id="example-furnace-temperature-vs-quality">Example: Furnace Temperature vs Quality</h2>
+<div class="chart"><div class="chart__title">Smelting Temperature vs Plate Quality</div><svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50.0" cy="240.0" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="105.0" cy="168.1" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="160.0" cy="100.4" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="215.0" cy="53.8" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="270.0" cy="28.5" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="325.0" cy="20.0" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="380.0" cy="24.2" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<line x1="50" y1="20" x2="50" y2="240" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<line x1="50" y1="240" x2="380" y2="240" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<text x="50.0" y="254" text-anchor="middle" class="barchart-label">800</text>
+<text x="44" y="244.0" text-anchor="end" class="barchart-value">45</text>
+<text x="132.5" y="254" text-anchor="middle" class="barchart-label">950</text>
+<text x="44" y="189.0" text-anchor="end" class="barchart-value">58</text>
+<text x="215.0" y="254" text-anchor="middle" class="barchart-label">1100</text>
+<text x="44" y="134.0" text-anchor="end" class="barchart-value">71</text>
+<text x="297.5" y="254" text-anchor="middle" class="barchart-label">1250</text>
+<text x="44" y="79.0" text-anchor="end" class="barchart-value">84</text>
+<text x="380.0" y="254" text-anchor="middle" class="barchart-label">1400</text>
+<text x="44" y="24.0" text-anchor="end" class="barchart-value">97</text>
+</svg><div class="pie-legend"><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#3366cc"></span>Quality rating</span></div></div>
+<h2 id="example-belt-speed-vs-throughput">Example: Belt Speed vs Throughput</h2>
+<div class="chart"><div class="chart__title">Belt Speed vs Item Throughput</div><svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50.0" cy="240.0" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="97.1" cy="191.1" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="144.3" cy="142.2" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="191.4" cy="103.1" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="238.6" cy="68.9" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="285.7" cy="44.4" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="332.9" cy="29.8" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<circle cx="380.0" cy="20.0" r="4" fill="#3366cc" stroke="var(--win-white)" stroke-width="1"/>
+<line x1="50" y1="20" x2="50" y2="240" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<line x1="50" y1="240" x2="380" y2="240" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<text x="50.0" y="254" text-anchor="middle" class="barchart-label">1</text>
+<text x="44" y="244.0" text-anchor="end" class="barchart-value">10</text>
+<text x="132.5" y="254" text-anchor="middle" class="barchart-label">2.75</text>
+<text x="44" y="189.0" text-anchor="end" class="barchart-value">21.25</text>
+<text x="215.0" y="254" text-anchor="middle" class="barchart-label">4.5</text>
+<text x="44" y="134.0" text-anchor="end" class="barchart-value">32.5</text>
+<text x="297.5" y="254" text-anchor="middle" class="barchart-label">6.25</text>
+<text x="44" y="79.0" text-anchor="end" class="barchart-value">43.75</text>
+<text x="380.0" y="254" text-anchor="middle" class="barchart-label">8</text>
+<text x="44" y="24.0" text-anchor="end" class="barchart-value">55</text>
+</svg><div class="pie-legend"><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#3366cc"></span>Items/min</span></div></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>

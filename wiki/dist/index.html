@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">Welcome</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <div class="hero">
+  <img class="hero__logo" src="static/trifectum.png" alt="Penrose">
+  <div class="hero__title">Penrose</div>
+  <div class="hero__subtitle">a wiki of knowledge</div>
+</div>
+<div class="hero-actions">
+  <button id="random-page" class="random-btn" type="button">
+    <img src="static/icons/w98_gears.png" alt=""> Random page
+  </button>
+</div>
+<div class="topic-grid">
+<div class="topic-card">
+  <div class="topic-card__head">
+    <img class="topic-card__icon" src="static/icons/w98_bar_graph.png" alt="">
+    <span class="topic-card__title">Examples</span>
+  </div>
+  <ul class="topic-card__list">
+    <li><a href="bar-charts.html">Bar Charts</a></li>
+<li><a href="colored-tables.html">Colored Tables</a></li>
+<li><a href="donut-charts.html">Donut Charts</a></li>
+<li><a href="gauges.html">Gauges</a></li>
+<li><a href="histograms.html">Histograms</a></li>
+<li><a href="line-charts.html">Line Charts</a></li>
+<li><a href="pie-charts.html">Pie Charts</a></li>
+<li><a href="scatter-plots.html">Scatter Plots</a></li>
+  </ul>
+</div>
+<div class="topic-card">
+  <div class="topic-card__head">
+    <img class="topic-card__icon" src="static/icons/w98_hardware.png" alt="">
+    <span class="topic-card__title">Machines</span>
+  </div>
+  <ul class="topic-card__list">
+    <li><a href="drill.html">Drill</a></li>
+<li><a href="furnace.html">Furnace</a></li>
+  </ul>
+</div>
+<div class="topic-card">
+  <div class="topic-card__head">
+    <img class="topic-card__icon" src="static/icons/w98_homepage.png" alt="">
+    <span class="topic-card__title">Meta</span>
+  </div>
+  <ul class="topic-card__list">
+    <li><a href="contents.html">Contents</a></li>
+<li><a href="this-wiki.html">This Wiki</a></li>
+  </ul>
+</div>
+<div class="topic-card">
+  <div class="topic-card__head">
+    <img class="topic-card__icon" src="static/icons/w98_tree.png" alt="">
+    <span class="topic-card__title">Research</span>
+  </div>
+  <ul class="topic-card__list">
+    <li><a href="research.html">Research Bench</a></li>
+  </ul>
+</div>
+<div class="topic-card">
+  <div class="topic-card__head">
+    <img class="topic-card__icon" src="static/icons/w98_battery.png" alt="">
+    <span class="topic-card__title">Resources</span>
+  </div>
+  <ul class="topic-card__list">
+    <li><a href="coal.html">Coal</a></li>
+<li><a href="iron.html">Iron</a></li>
+  </ul>
+</div>
+</div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>

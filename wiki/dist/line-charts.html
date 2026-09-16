@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Charts - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">Line Charts</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <nav class="toc-nav"><h2>Contents</h2><ul>
+<li><a href="#line-charts">Line Charts</a></li>
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#example-production-over-time">Example: Production Over Time</a></li>
+  <li><a href="#example-resource-depletion">Example: Resource Depletion</a></li>
+  <li><a href="#example-power-consumption">Example: Power Consumption</a></li>
+</ul></nav>
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <h1 id="line-charts">Line Charts</h1>
+<p>Line charts plot multiple data series over a sequence. Values are space-separated.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code>::: linechart
+title = Time Series
+Series A = 10 20 30 25 40
+Series B = 5 15 25 35 30
+:::</code></pre>
+<h2 id="example-production-over-time">Example: Production Over Time</h2>
+<div class="chart"><div class="chart__title">Production Output (units/hr)</div><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50.0" cy="106.2" r="3" fill="#3366cc"/>
+<circle cx="105.0" cy="81.5" r="3" fill="#3366cc"/>
+<circle cx="160.0" cy="56.9" r="3" fill="#3366cc"/>
+<circle cx="215.0" cy="69.2" r="3" fill="#3366cc"/>
+<circle cx="270.0" cy="32.3" r="3" fill="#3366cc"/>
+<circle cx="325.0" cy="38.5" r="3" fill="#3366cc"/>
+<circle cx="380.0" cy="20.0" r="3" fill="#3366cc"/>
+<path d="M50.0,106.2 L105.0,81.5 L160.0,56.9 L215.0,69.2 L270.0,32.3 L325.0,38.5 L380.0,20.0" fill="none" stroke="#3366cc" stroke-width="2"/>
+<circle cx="50.0" cy="130.8" r="3" fill="#dc3912"/>
+<circle cx="105.0" cy="124.6" r="3" fill="#dc3912"/>
+<circle cx="160.0" cy="118.5" r="3" fill="#dc3912"/>
+<circle cx="215.0" cy="120.9" r="3" fill="#dc3912"/>
+<circle cx="270.0" cy="112.3" r="3" fill="#dc3912"/>
+<circle cx="325.0" cy="106.2" r="3" fill="#dc3912"/>
+<circle cx="380.0" cy="100.0" r="3" fill="#dc3912"/>
+<path d="M50.0,130.8 L105.0,124.6 L160.0,118.5 L215.0,120.9 L270.0,112.3 L325.0,106.2 L380.0,100.0" fill="none" stroke="#dc3912" stroke-width="2"/>
+<circle cx="50.0" cy="180.0" r="3" fill="#ff9900"/>
+<circle cx="105.0" cy="167.7" r="3" fill="#ff9900"/>
+<circle cx="160.0" cy="155.4" r="3" fill="#ff9900"/>
+<circle cx="215.0" cy="149.2" r="3" fill="#ff9900"/>
+<circle cx="270.0" cy="143.1" r="3" fill="#ff9900"/>
+<circle cx="325.0" cy="136.9" r="3" fill="#ff9900"/>
+<circle cx="380.0" cy="130.8" r="3" fill="#ff9900"/>
+<path d="M50.0,180.0 L105.0,167.7 L160.0,155.4 L215.0,149.2 L270.0,143.1 L325.0,136.9 L380.0,130.8" fill="none" stroke="#ff9900" stroke-width="2"/>
+<line x1="50" y1="20" x2="50" y2="180" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<line x1="50" y1="180" x2="380" y2="180" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<text x="50.0" y="194" text-anchor="middle" class="barchart-label">1</text>
+<text x="105.0" y="194" text-anchor="middle" class="barchart-label">2</text>
+<text x="160.0" y="194" text-anchor="middle" class="barchart-label">3</text>
+<text x="215.0" y="194" text-anchor="middle" class="barchart-label">4</text>
+<text x="270.0" y="194" text-anchor="middle" class="barchart-label">5</text>
+<text x="325.0" y="194" text-anchor="middle" class="barchart-label">6</text>
+<text x="380.0" y="194" text-anchor="middle" class="barchart-label">7</text>
+<text x="44" y="184.0" text-anchor="end" class="barchart-value">40</text>
+<text x="44" y="144.0" text-anchor="end" class="barchart-value">72.5</text>
+<text x="44" y="104.0" text-anchor="end" class="barchart-value">105</text>
+<text x="44" y="64.0" text-anchor="end" class="barchart-value">137.5</text>
+<text x="44" y="24.0" text-anchor="end" class="barchart-value">170</text>
+</svg><div class="pie-legend"><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#3366cc"></span>Drills</span><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#dc3912"></span>Furnaces</span><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#ff9900"></span>Assemblers</span></div></div>
+<h2 id="example-resource-depletion">Example: Resource Depletion</h2>
+<div class="chart"><div class="chart__title">Resource Stockpile (tons)</div><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50.0" cy="20.0" r="3" fill="#3366cc"/>
+<circle cx="105.0" cy="43.5" r="3" fill="#3366cc"/>
+<circle cx="160.0" cy="76.5" r="3" fill="#3366cc"/>
+<circle cx="215.0" cy="109.4" r="3" fill="#3366cc"/>
+<circle cx="270.0" cy="137.6" r="3" fill="#3366cc"/>
+<circle cx="325.0" cy="161.2" r="3" fill="#3366cc"/>
+<circle cx="380.0" cy="180.0" r="3" fill="#3366cc"/>
+<path d="M50.0,20.0 L105.0,43.5 L160.0,76.5 L215.0,109.4 L270.0,137.6 L325.0,161.2 L380.0,180.0" fill="none" stroke="#3366cc" stroke-width="2"/>
+<circle cx="50.0" cy="114.1" r="3" fill="#dc3912"/>
+<circle cx="105.0" cy="118.8" r="3" fill="#dc3912"/>
+<circle cx="160.0" cy="125.9" r="3" fill="#dc3912"/>
+<circle cx="215.0" cy="132.9" r="3" fill="#dc3912"/>
+<circle cx="270.0" cy="142.4" r="3" fill="#dc3912"/>
+<circle cx="325.0" cy="151.8" r="3" fill="#dc3912"/>
+<circle cx="380.0" cy="161.2" r="3" fill="#dc3912"/>
+<path d="M50.0,114.1 L105.0,118.8 L160.0,125.9 L215.0,132.9 L270.0,142.4 L325.0,151.8 L380.0,161.2" fill="none" stroke="#dc3912" stroke-width="2"/>
+<line x1="50" y1="20" x2="50" y2="180" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<line x1="50" y1="180" x2="380" y2="180" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<text x="50.0" y="194" text-anchor="middle" class="barchart-label">1</text>
+<text x="105.0" y="194" text-anchor="middle" class="barchart-label">2</text>
+<text x="160.0" y="194" text-anchor="middle" class="barchart-label">3</text>
+<text x="215.0" y="194" text-anchor="middle" class="barchart-label">4</text>
+<text x="270.0" y="194" text-anchor="middle" class="barchart-label">5</text>
+<text x="325.0" y="194" text-anchor="middle" class="barchart-label">6</text>
+<text x="380.0" y="194" text-anchor="middle" class="barchart-label">7</text>
+<text x="44" y="184.0" text-anchor="end" class="barchart-value">160</text>
+<text x="44" y="144.0" text-anchor="end" class="barchart-value">245</text>
+<text x="44" y="104.0" text-anchor="end" class="barchart-value">330</text>
+<text x="44" y="64.0" text-anchor="end" class="barchart-value">415</text>
+<text x="44" y="24.0" text-anchor="end" class="barchart-value">500</text>
+</svg><div class="pie-legend"><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#3366cc"></span>Coal</span><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#dc3912"></span>Iron</span></div></div>
+<h2 id="example-power-consumption">Example: Power Consumption</h2>
+<div class="chart"><div class="chart__title">Power Draw (kW) Over 12 Hours</div><svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50.0" cy="65.7" r="3" fill="#3366cc"/>
+<circle cx="80.0" cy="50.5" r="3" fill="#3366cc"/>
+<circle cx="110.0" cy="35.2" r="3" fill="#3366cc"/>
+<circle cx="140.0" cy="27.6" r="3" fill="#3366cc"/>
+<circle cx="170.0" cy="20.0" r="3" fill="#3366cc"/>
+<circle cx="200.0" cy="23.8" r="3" fill="#3366cc"/>
+<circle cx="230.0" cy="27.6" r="3" fill="#3366cc"/>
+<circle cx="260.0" cy="35.2" r="3" fill="#3366cc"/>
+<circle cx="290.0" cy="42.9" r="3" fill="#3366cc"/>
+<circle cx="320.0" cy="50.5" r="3" fill="#3366cc"/>
+<circle cx="350.0" cy="58.1" r="3" fill="#3366cc"/>
+<circle cx="380.0" cy="65.7" r="3" fill="#3366cc"/>
+<path d="M50.0,65.7 L80.0,50.5 L110.0,35.2 L140.0,27.6 L170.0,20.0 L200.0,23.8 L230.0,27.6 L260.0,35.2 L290.0,42.9 L320.0,50.5 L350.0,58.1 L380.0,65.7" fill="none" stroke="#3366cc" stroke-width="2"/>
+<circle cx="50.0" cy="180.0" r="3" fill="#dc3912"/>
+<circle cx="80.0" cy="172.4" r="3" fill="#dc3912"/>
+<circle cx="110.0" cy="157.1" r="3" fill="#dc3912"/>
+<circle cx="140.0" cy="149.5" r="3" fill="#dc3912"/>
+<circle cx="170.0" cy="141.9" r="3" fill="#dc3912"/>
+<circle cx="200.0" cy="134.3" r="3" fill="#dc3912"/>
+<circle cx="230.0" cy="134.3" r="3" fill="#dc3912"/>
+<circle cx="260.0" cy="141.9" r="3" fill="#dc3912"/>
+<circle cx="290.0" cy="149.5" r="3" fill="#dc3912"/>
+<circle cx="320.0" cy="157.1" r="3" fill="#dc3912"/>
+<circle cx="350.0" cy="172.4" r="3" fill="#dc3912"/>
+<circle cx="380.0" cy="180.0" r="3" fill="#dc3912"/>
+<path d="M50.0,180.0 L80.0,172.4 L110.0,157.1 L140.0,149.5 L170.0,141.9 L200.0,134.3 L230.0,134.3 L260.0,141.9 L290.0,149.5 L320.0,157.1 L350.0,172.4 L380.0,180.0" fill="none" stroke="#dc3912" stroke-width="2"/>
+<line x1="50" y1="20" x2="50" y2="180" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<line x1="50" y1="180" x2="380" y2="180" stroke="var(--win-dark-grey)" stroke-width="1"/>
+<text x="50.0" y="194" text-anchor="middle" class="barchart-label">1</text>
+<text x="80.0" y="194" text-anchor="middle" class="barchart-label">2</text>
+<text x="110.0" y="194" text-anchor="middle" class="barchart-label">3</text>
+<text x="140.0" y="194" text-anchor="middle" class="barchart-label">4</text>
+<text x="170.0" y="194" text-anchor="middle" class="barchart-label">5</text>
+<text x="200.0" y="194" text-anchor="middle" class="barchart-label">6</text>
+<text x="230.0" y="194" text-anchor="middle" class="barchart-label">7</text>
+<text x="260.0" y="194" text-anchor="middle" class="barchart-label">8</text>
+<text x="290.0" y="194" text-anchor="middle" class="barchart-label">9</text>
+<text x="320.0" y="194" text-anchor="middle" class="barchart-label">10</text>
+<text x="350.0" y="194" text-anchor="middle" class="barchart-label">11</text>
+<text x="380.0" y="194" text-anchor="middle" class="barchart-label">12</text>
+<text x="44" y="184.0" text-anchor="end" class="barchart-value">50</text>
+<text x="44" y="144.0" text-anchor="end" class="barchart-value">102.5</text>
+<text x="44" y="104.0" text-anchor="end" class="barchart-value">155</text>
+<text x="44" y="64.0" text-anchor="end" class="barchart-value">207.5</text>
+<text x="44" y="24.0" text-anchor="end" class="barchart-value">260</text>
+</svg><div class="pie-legend"><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#3366cc"></span>Factory floor</span><span class="pie-legend__item"><span class="pie-legend__swatch" style="background:#dc3912"></span>Research wing</span></div></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>

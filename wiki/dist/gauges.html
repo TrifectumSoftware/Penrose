@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gauges - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">Gauges</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <nav class="toc-nav"><h2>Contents</h2><ul>
+<li><a href="#gauges">Gauges</a></li>
+  <li><a href="#syntax">Syntax</a></li>
+  <li><a href="#example-factory-metrics">Example: Factory Metrics</a></li>
+  <li><a href="#example-resource-levels">Example: Resource Levels</a></li>
+  <li><a href="#example-machine-health">Example: Machine Health</a></li>
+</ul></nav>
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <h1 id="gauges">Gauges</h1>
+<p>Gauges display a single value as a proportion of a maximum. Useful for dashboards and status indicators.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code>::: gauge
+title = Status
+value = 75
+max = 100
+label = percent
+:::</code></pre>
+<h2 id="example-factory-metrics">Example: Factory Metrics</h2>
+<div class="chart"><div class="chart__title">Overall Efficiency</div><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0,110.0 A75,75 0 0,1 25.9,98.3 L37.8,100.1 A63,63 0 0,0 37.0,110.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M25.9,98.3 A75,75 0 0,1 28.7,86.8 L40.1,90.5 A63,63 0 0,0 37.8,100.1 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M28.7,86.8 A75,75 0 0,1 33.2,76.0 L43.9,81.4 A63,63 0 0,0 40.1,90.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M33.2,76.0 A75,75 0 0,1 39.3,65.9 L49.0,73.0 A63,63 0 0,0 43.9,81.4 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M39.3,65.9 A75,75 0 0,1 47.0,57.0 L55.5,65.5 A63,63 0 0,0 49.0,73.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M47.0,57.0 A75,75 0 0,1 55.9,49.3 L63.0,59.0 A63,63 0 0,0 55.5,65.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M55.9,49.3 A75,75 0 0,1 66.0,43.2 L71.4,53.9 A63,63 0 0,0 63.0,59.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M66.0,43.2 A75,75 0 0,1 76.8,38.7 L80.5,50.1 A63,63 0 0,0 71.4,53.9 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M76.8,38.7 A75,75 0 0,1 88.3,35.9 L90.1,47.8 A63,63 0 0,0 80.5,50.1 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M88.3,35.9 A75,75 0 0,1 100.0,35.0 L100.0,47.0 A63,63 0 0,0 90.1,47.8 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M100.0,35.0 A75,75 0 0,1 111.7,35.9 L109.9,47.8 A63,63 0 0,0 100.0,47.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M111.7,35.9 A75,75 0 0,1 123.2,38.7 L119.5,50.1 A63,63 0 0,0 109.9,47.8 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M123.2,38.7 A75,75 0 0,1 134.0,43.2 L128.6,53.9 A63,63 0 0,0 119.5,50.1 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M134.0,43.2 A75,75 0 0,1 144.1,49.3 L137.0,59.0 A63,63 0 0,0 128.6,53.9 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M144.1,49.3 A75,75 0 0,1 153.0,57.0 L144.5,65.5 A63,63 0 0,0 137.0,59.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M153.0,57.0 A75,75 0 0,1 160.7,65.9 L151.0,73.0 A63,63 0 0,0 144.5,65.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M160.7,65.9 A75,75 0 0,1 166.8,76.0 L156.1,81.4 A63,63 0 0,0 151.0,73.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M166.8,76.0 A75,75 0 0,1 171.3,86.8 L159.9,90.5 A63,63 0 0,0 156.1,81.4 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M171.3,86.8 A75,75 0 0,1 174.1,98.3 L162.2,100.1 A63,63 0 0,0 159.9,90.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M174.1,98.3 A75,75 0 0,1 175.0,110.0 L163.0,110.0 A63,63 0 0,0 162.2,100.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<line x1="100" y1="110" x2="150.5" y2="88.2" stroke="var(--win-black)" stroke-width="2"/>
+<circle cx="100" cy="110" r="4" fill="var(--win-black)"/>
+<text x="100" y="132" text-anchor="middle" class="gauge-value">87</text>
+<text x="100" y="144" text-anchor="middle" class="gauge-label">percent</text>
+</svg></div>
+<div class="chart"><div class="chart__title">Furnace Temperature</div><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0,110.0 A75,75 0 0,1 25.9,98.3 L37.8,100.1 A63,63 0 0,0 37.0,110.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M25.9,98.3 A75,75 0 0,1 28.7,86.8 L40.1,90.5 A63,63 0 0,0 37.8,100.1 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M28.7,86.8 A75,75 0 0,1 33.2,76.0 L43.9,81.4 A63,63 0 0,0 40.1,90.5 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M33.2,76.0 A75,75 0 0,1 39.3,65.9 L49.0,73.0 A63,63 0 0,0 43.9,81.4 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M39.3,65.9 A75,75 0 0,1 47.0,57.0 L55.5,65.5 A63,63 0 0,0 49.0,73.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M47.0,57.0 A75,75 0 0,1 55.9,49.3 L63.0,59.0 A63,63 0 0,0 55.5,65.5 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M55.9,49.3 A75,75 0 0,1 66.0,43.2 L71.4,53.9 A63,63 0 0,0 63.0,59.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M66.0,43.2 A75,75 0 0,1 76.8,38.7 L80.5,50.1 A63,63 0 0,0 71.4,53.9 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M76.8,38.7 A75,75 0 0,1 88.3,35.9 L90.1,47.8 A63,63 0 0,0 80.5,50.1 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M88.3,35.9 A75,75 0 0,1 100.0,35.0 L100.0,47.0 A63,63 0 0,0 90.1,47.8 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M100.0,35.0 A75,75 0 0,1 111.7,35.9 L109.9,47.8 A63,63 0 0,0 100.0,47.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M111.7,35.9 A75,75 0 0,1 123.2,38.7 L119.5,50.1 A63,63 0 0,0 109.9,47.8 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M123.2,38.7 A75,75 0 0,1 134.0,43.2 L128.6,53.9 A63,63 0 0,0 119.5,50.1 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M134.0,43.2 A75,75 0 0,1 144.1,49.3 L137.0,59.0 A63,63 0 0,0 128.6,53.9 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M144.1,49.3 A75,75 0 0,1 153.0,57.0 L144.5,65.5 A63,63 0 0,0 137.0,59.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M153.0,57.0 A75,75 0 0,1 160.7,65.9 L151.0,73.0 A63,63 0 0,0 144.5,65.5 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M160.7,65.9 A75,75 0 0,1 166.8,76.0 L156.1,81.4 A63,63 0 0,0 151.0,73.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M166.8,76.0 A75,75 0 0,1 171.3,86.8 L159.9,90.5 A63,63 0 0,0 156.1,81.4 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M171.3,86.8 A75,75 0 0,1 174.1,98.3 L162.2,100.1 A63,63 0 0,0 159.9,90.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M174.1,98.3 A75,75 0 0,1 175.0,110.0 L163.0,110.0 A63,63 0 0,0 162.2,100.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<line x1="100" y1="110" x2="147.0" y2="81.5" stroke="var(--win-black)" stroke-width="2"/>
+<circle cx="100" cy="110" r="4" fill="var(--win-black)"/>
+<text x="100" y="132" text-anchor="middle" class="gauge-value">1240</text>
+<text x="100" y="144" text-anchor="middle" class="gauge-label">degrees C</text>
+</svg></div>
+<h2 id="example-resource-levels">Example: Resource Levels</h2>
+<div class="chart"><div class="chart__title">Coal Reserve</div><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0,110.0 A75,75 0 0,1 25.9,98.3 L37.8,100.1 A63,63 0 0,0 37.0,110.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M25.9,98.3 A75,75 0 0,1 28.7,86.8 L40.1,90.5 A63,63 0 0,0 37.8,100.1 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M28.7,86.8 A75,75 0 0,1 33.2,76.0 L43.9,81.4 A63,63 0 0,0 40.1,90.5 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M33.2,76.0 A75,75 0 0,1 39.3,65.9 L49.0,73.0 A63,63 0 0,0 43.9,81.4 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M39.3,65.9 A75,75 0 0,1 47.0,57.0 L55.5,65.5 A63,63 0 0,0 49.0,73.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M47.0,57.0 A75,75 0 0,1 55.9,49.3 L63.0,59.0 A63,63 0 0,0 55.5,65.5 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M55.9,49.3 A75,75 0 0,1 66.0,43.2 L71.4,53.9 A63,63 0 0,0 63.0,59.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M66.0,43.2 A75,75 0 0,1 76.8,38.7 L80.5,50.1 A63,63 0 0,0 71.4,53.9 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M76.8,38.7 A75,75 0 0,1 88.3,35.9 L90.1,47.8 A63,63 0 0,0 80.5,50.1 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M88.3,35.9 A75,75 0 0,1 100.0,35.0 L100.0,47.0 A63,63 0 0,0 90.1,47.8 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M100.0,35.0 A75,75 0 0,1 111.7,35.9 L109.9,47.8 A63,63 0 0,0 100.0,47.0 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M111.7,35.9 A75,75 0 0,1 123.2,38.7 L119.5,50.1 A63,63 0 0,0 109.9,47.8 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M123.2,38.7 A75,75 0 0,1 134.0,43.2 L128.6,53.9 A63,63 0 0,0 119.5,50.1 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M134.0,43.2 A75,75 0 0,1 144.1,49.3 L137.0,59.0 A63,63 0 0,0 128.6,53.9 Z" fill="#ff9900" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M144.1,49.3 A75,75 0 0,1 153.0,57.0 L144.5,65.5 A63,63 0 0,0 137.0,59.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M153.0,57.0 A75,75 0 0,1 160.7,65.9 L151.0,73.0 A63,63 0 0,0 144.5,65.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M160.7,65.9 A75,75 0 0,1 166.8,76.0 L156.1,81.4 A63,63 0 0,0 151.0,73.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M166.8,76.0 A75,75 0 0,1 171.3,86.8 L159.9,90.5 A63,63 0 0,0 156.1,81.4 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M171.3,86.8 A75,75 0 0,1 174.1,98.3 L162.2,100.1 A63,63 0 0,0 159.9,90.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M174.1,98.3 A75,75 0 0,1 175.0,110.0 L163.0,110.0 A63,63 0 0,0 162.2,100.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<line x1="100" y1="110" x2="125.0" y2="61.0" stroke="var(--win-black)" stroke-width="2"/>
+<circle cx="100" cy="110" r="4" fill="var(--win-black)"/>
+<text x="100" y="132" text-anchor="middle" class="gauge-value">65</text>
+<text x="100" y="144" text-anchor="middle" class="gauge-label">capacity</text>
+</svg></div>
+<div class="chart"><div class="chart__title">Water Supply</div><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0,110.0 A75,75 0 0,1 25.9,98.3 L37.8,100.1 A63,63 0 0,0 37.0,110.0 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M25.9,98.3 A75,75 0 0,1 28.7,86.8 L40.1,90.5 A63,63 0 0,0 37.8,100.1 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M28.7,86.8 A75,75 0 0,1 33.2,76.0 L43.9,81.4 A63,63 0 0,0 40.1,90.5 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M33.2,76.0 A75,75 0 0,1 39.3,65.9 L49.0,73.0 A63,63 0 0,0 43.9,81.4 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M39.3,65.9 A75,75 0 0,1 47.0,57.0 L55.5,65.5 A63,63 0 0,0 49.0,73.0 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M47.0,57.0 A75,75 0 0,1 55.9,49.3 L63.0,59.0 A63,63 0 0,0 55.5,65.5 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M55.9,49.3 A75,75 0 0,1 66.0,43.2 L71.4,53.9 A63,63 0 0,0 63.0,59.0 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M66.0,43.2 A75,75 0 0,1 76.8,38.7 L80.5,50.1 A63,63 0 0,0 71.4,53.9 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M76.8,38.7 A75,75 0 0,1 88.3,35.9 L90.1,47.8 A63,63 0 0,0 80.5,50.1 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M88.3,35.9 A75,75 0 0,1 100.0,35.0 L100.0,47.0 A63,63 0 0,0 90.1,47.8 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M100.0,35.0 A75,75 0 0,1 111.7,35.9 L109.9,47.8 A63,63 0 0,0 100.0,47.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M111.7,35.9 A75,75 0 0,1 123.2,38.7 L119.5,50.1 A63,63 0 0,0 109.9,47.8 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M123.2,38.7 A75,75 0 0,1 134.0,43.2 L128.6,53.9 A63,63 0 0,0 119.5,50.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M134.0,43.2 A75,75 0 0,1 144.1,49.3 L137.0,59.0 A63,63 0 0,0 128.6,53.9 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M144.1,49.3 A75,75 0 0,1 153.0,57.0 L144.5,65.5 A63,63 0 0,0 137.0,59.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M153.0,57.0 A75,75 0 0,1 160.7,65.9 L151.0,73.0 A63,63 0 0,0 144.5,65.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M160.7,65.9 A75,75 0 0,1 166.8,76.0 L156.1,81.4 A63,63 0 0,0 151.0,73.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M166.8,76.0 A75,75 0 0,1 171.3,86.8 L159.9,90.5 A63,63 0 0,0 156.1,81.4 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M171.3,86.8 A75,75 0 0,1 174.1,98.3 L162.2,100.1 A63,63 0 0,0 159.9,90.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M174.1,98.3 A75,75 0 0,1 175.0,110.0 L163.0,110.0 A63,63 0 0,0 162.2,100.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<line x1="100" y1="110" x2="86.3" y2="56.7" stroke="var(--win-black)" stroke-width="2"/>
+<circle cx="100" cy="110" r="4" fill="var(--win-black)"/>
+<text x="100" y="132" text-anchor="middle" class="gauge-value">42</text>
+<text x="100" y="144" text-anchor="middle" class="gauge-label">capacity</text>
+</svg></div>
+<h2 id="example-machine-health">Example: Machine Health</h2>
+<div class="chart"><div class="chart__title">Drill Integrity</div><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0,110.0 A75,75 0 0,1 25.9,98.3 L37.8,100.1 A63,63 0 0,0 37.0,110.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M25.9,98.3 A75,75 0 0,1 28.7,86.8 L40.1,90.5 A63,63 0 0,0 37.8,100.1 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M28.7,86.8 A75,75 0 0,1 33.2,76.0 L43.9,81.4 A63,63 0 0,0 40.1,90.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M33.2,76.0 A75,75 0 0,1 39.3,65.9 L49.0,73.0 A63,63 0 0,0 43.9,81.4 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M39.3,65.9 A75,75 0 0,1 47.0,57.0 L55.5,65.5 A63,63 0 0,0 49.0,73.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M47.0,57.0 A75,75 0 0,1 55.9,49.3 L63.0,59.0 A63,63 0 0,0 55.5,65.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M55.9,49.3 A75,75 0 0,1 66.0,43.2 L71.4,53.9 A63,63 0 0,0 63.0,59.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M66.0,43.2 A75,75 0 0,1 76.8,38.7 L80.5,50.1 A63,63 0 0,0 71.4,53.9 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M76.8,38.7 A75,75 0 0,1 88.3,35.9 L90.1,47.8 A63,63 0 0,0 80.5,50.1 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M88.3,35.9 A75,75 0 0,1 100.0,35.0 L100.0,47.0 A63,63 0 0,0 90.1,47.8 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M100.0,35.0 A75,75 0 0,1 111.7,35.9 L109.9,47.8 A63,63 0 0,0 100.0,47.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M111.7,35.9 A75,75 0 0,1 123.2,38.7 L119.5,50.1 A63,63 0 0,0 109.9,47.8 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M123.2,38.7 A75,75 0 0,1 134.0,43.2 L128.6,53.9 A63,63 0 0,0 119.5,50.1 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M134.0,43.2 A75,75 0 0,1 144.1,49.3 L137.0,59.0 A63,63 0 0,0 128.6,53.9 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M144.1,49.3 A75,75 0 0,1 153.0,57.0 L144.5,65.5 A63,63 0 0,0 137.0,59.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M153.0,57.0 A75,75 0 0,1 160.7,65.9 L151.0,73.0 A63,63 0 0,0 144.5,65.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M160.7,65.9 A75,75 0 0,1 166.8,76.0 L156.1,81.4 A63,63 0 0,0 151.0,73.0 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M166.8,76.0 A75,75 0 0,1 171.3,86.8 L159.9,90.5 A63,63 0 0,0 156.1,81.4 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M171.3,86.8 A75,75 0 0,1 174.1,98.3 L162.2,100.1 A63,63 0 0,0 159.9,90.5 Z" fill="#dc3912" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M174.1,98.3 A75,75 0 0,1 175.0,110.0 L163.0,110.0 A63,63 0 0,0 162.2,100.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<line x1="100" y1="110" x2="153.7" y2="98.0" stroke="var(--win-black)" stroke-width="2"/>
+<circle cx="100" cy="110" r="4" fill="var(--win-black)"/>
+<text x="100" y="132" text-anchor="middle" class="gauge-value">93</text>
+<text x="100" y="144" text-anchor="middle" class="gauge-label">percent</text>
+</svg></div>
+<div class="chart"><div class="chart__title">Conveyor Wear</div><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0,110.0 A75,75 0 0,1 25.9,98.3 L37.8,100.1 A63,63 0 0,0 37.0,110.0 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M25.9,98.3 A75,75 0 0,1 28.7,86.8 L40.1,90.5 A63,63 0 0,0 37.8,100.1 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M28.7,86.8 A75,75 0 0,1 33.2,76.0 L43.9,81.4 A63,63 0 0,0 40.1,90.5 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M33.2,76.0 A75,75 0 0,1 39.3,65.9 L49.0,73.0 A63,63 0 0,0 43.9,81.4 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M39.3,65.9 A75,75 0 0,1 47.0,57.0 L55.5,65.5 A63,63 0 0,0 49.0,73.0 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M47.0,57.0 A75,75 0 0,1 55.9,49.3 L63.0,59.0 A63,63 0 0,0 55.5,65.5 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M55.9,49.3 A75,75 0 0,1 66.0,43.2 L71.4,53.9 A63,63 0 0,0 63.0,59.0 Z" fill="#109618" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M66.0,43.2 A75,75 0 0,1 76.8,38.7 L80.5,50.1 A63,63 0 0,0 71.4,53.9 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M76.8,38.7 A75,75 0 0,1 88.3,35.9 L90.1,47.8 A63,63 0 0,0 80.5,50.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M88.3,35.9 A75,75 0 0,1 100.0,35.0 L100.0,47.0 A63,63 0 0,0 90.1,47.8 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M100.0,35.0 A75,75 0 0,1 111.7,35.9 L109.9,47.8 A63,63 0 0,0 100.0,47.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M111.7,35.9 A75,75 0 0,1 123.2,38.7 L119.5,50.1 A63,63 0 0,0 109.9,47.8 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M123.2,38.7 A75,75 0 0,1 134.0,43.2 L128.6,53.9 A63,63 0 0,0 119.5,50.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M134.0,43.2 A75,75 0 0,1 144.1,49.3 L137.0,59.0 A63,63 0 0,0 128.6,53.9 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M144.1,49.3 A75,75 0 0,1 153.0,57.0 L144.5,65.5 A63,63 0 0,0 137.0,59.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M153.0,57.0 A75,75 0 0,1 160.7,65.9 L151.0,73.0 A63,63 0 0,0 144.5,65.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M160.7,65.9 A75,75 0 0,1 166.8,76.0 L156.1,81.4 A63,63 0 0,0 151.0,73.0 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M166.8,76.0 A75,75 0 0,1 171.3,86.8 L159.9,90.5 A63,63 0 0,0 156.1,81.4 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M171.3,86.8 A75,75 0 0,1 174.1,98.3 L162.2,100.1 A63,63 0 0,0 159.9,90.5 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<path d="M174.1,98.3 A75,75 0 0,1 175.0,110.0 L163.0,110.0 A63,63 0 0,0 162.2,100.1 Z" fill="var(--win-light-grey)" stroke="var(--win-white)" stroke-width="0.5"/>
+<line x1="100" y1="110" x2="69.1" y2="64.5" stroke="var(--win-black)" stroke-width="2"/>
+<circle cx="100" cy="110" r="4" fill="var(--win-black)"/>
+<text x="100" y="132" text-anchor="middle" class="gauge-value">31</text>
+<text x="100" y="144" text-anchor="middle" class="gauge-label">percent</text>
+</svg></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>

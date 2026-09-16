@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This Wiki - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">This Wiki</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <nav class="toc-nav"><h2>Contents</h2><ul>
+<li><a href="#this-wiki">This Wiki</a></li>
+  <li><a href="#format">Format</a></li>
+  <li><a href="#adding-a-page">Adding a Page</a></li>
+  <li><a href="#page-metadata">Page Metadata</a></li>
+  <li><a href="#article-tags">Article Tags</a></li>
+  <li><a href="#markdown-syntax">Markdown Syntax</a></li>
+  <li><a href="#tables">Tables</a></li>
+  <li><a href="#infoboxes">Infoboxes</a></li>
+  <li><a href="#charts">Charts</a></li>
+    <li><a href="#pie-chart">Pie Chart</a></li>
+    <li><a href="#donut-chart">Donut Chart</a></li>
+    <li><a href="#bar-chart">Bar Chart</a></li>
+    <li><a href="#histogram">Histogram</a></li>
+    <li><a href="#line-chart">Line Chart</a></li>
+    <li><a href="#scatter-plot">Scatter Plot</a></li>
+    <li><a href="#gauge">Gauge</a></li>
+  <li><a href="#colored-tables">Colored Tables</a></li>
+  <li><a href="#icons">Icons</a></li>
+  <li><a href="#search">Search</a></li>
+  <li><a href="#links">Links</a></li>
+  <li><a href="#design">Design</a></li>
+  <li><a href="#building">Building</a></li>
+  <li><a href="#configuration">Configuration</a></li>
+  <li><a href="#hosting">Hosting</a></li>
+</ul></nav>
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <h1 id="this-wiki">This Wiki</h1>
+<p>How this wiki works, and how to contribute to it.</p>
+<h2 id="format">Format</h2>
+<p>Every page is a single markdown file in the <code>wiki/content/</code> directory. The filename becomes the URL. A file named <code>quantum-computing.md</code> becomes <code>quantum-computing.html</code>.</p>
+<p>The build script (<code>wiki/build.py</code>) reads all <code>.md</code> files, converts them to HTML, and writes the output to <code>wiki/dist/</code>.</p>
+<h2 id="adding-a-page">Adding a Page</h2>
+<ul>
+  <li>Create a new <code>.md</code> file in <code>wiki/content/</code></li>
+  <li>Optionally add front-matter (see below)</li>
+  <li>Start the file with a heading: <code># Your Page Title</code></li>
+  <li>Write the content in markdown</li>
+  <li>Run <code>py wiki/build.py</code> to regenerate the site</li>
+  <li>Commit the new file and the updated <code>dist/</code> output</li>
+</ul>
+<h2 id="page-metadata">Page Metadata</h2>
+<p>An optional front-matter block at the top of the file sets the page title, topic, and icon:</p>
+<pre><code>---
+title: My Page
+topic: Machines
+icon: w98_gears.png
+---
+
+# My Page</code></pre>
+<p><code>topic</code> groups the page on the main page's topic grid; <code>icon</code> is the icon shown beside it (any file in <code>static/icons/</code>).</p>
+<h2 id="article-tags">Article Tags</h2>
+<p>Banners like "This article is a stub" are added with a tag directive on its own line:</p>
+<ul>
+  <li><code>{{stub}}</code> — "This article is a stub."</li>
+  <li><code>{{wip}}</code> — "This refers to unfinished content."</li>
+  <li><code>{{outdated}}</code> — "This article may be outdated."</li>
+  <li><code>{{disputed}}</code> — "The accuracy of this article is disputed."</li>
+</ul>
+<p>New tags are defined in the <code>TAGS</code> dictionary in <code>wiki/build.py</code>.</p>
+<h2 id="markdown-syntax">Markdown Syntax</h2>
+<p>The build script supports basic markdown:</p>
+<ul>
+  <li>Headings: <code># Heading</code> through <code>#### Heading</code></li>
+  <li>Bold: <code>**bold text**</code></li>
+  <li>Italic: <code>*italic text*</code></li>
+  <li>Inline code: use single backticks for <code>code</code></li>
+  <li>Links: <code>[link text](url)</code> for internal and external links</li>
+  <li>Images and icons: <code>![alt text](static/icons/w98_gears.png)</code></li>
+  <li>Thumbnails: <code>![[caption]](url)</code> for a right-floated image with a caption</li>
+  <li>Lists: <code>- item</code> for unordered lists, <code>1. item</code> for ordered lists</li>
+  <li>Code blocks: triple backticks for fenced code</li>
+</ul>
+<h2 id="tables">Tables</h2>
+<p>Write tables with pipes. The first row is the header. The separator row (<code>| --- | --- |</code>) is optional:</p>
+<pre><code>| Page | Description |
+| Welcome | The home page |
+| This Wiki | Documentation |</code></pre>
+<p>Or with an explicit separator (same result):</p>
+<pre><code>| Page | Description |
+| ---- | ----------- |
+| Welcome | The home page |
+| This Wiki | Documentation |</code></pre>
+<h2 id="infoboxes">Infoboxes</h2>
+<p>A right-floated summary box, the classic Wikimedia element:</p>
+<pre><code>::: infobox
+title = Page Name
+image = static/icons/w98_gears.png
+caption = Optional caption
+Type = Static wiki
+Built with = Python
+:::</code></pre>
+<p>The <code>title</code> and <code>image</code> keys are special; every other <code>Key = Value</code> line becomes a label/value row.</p>
+<h2 id="charts">Charts</h2>
+<p>Charts are rendered as inline SVG via <code>::: block</code> syntax. All charts respond to the active theme.</p>
+<h3 id="pie-chart">Pie Chart</h3>
+<pre><code>::: pie
+title = Breakdown
+Slice A = 40
+Slice B = 30
+:::</code></pre>
+<h3 id="donut-chart">Donut Chart</h3>
+<p>Same as pie but with a hollow center:</p>
+<pre><code>::: donut
+title = Breakdown
+Slice A = 40
+Slice B = 30
+:::</code></pre>
+<h3 id="bar-chart">Bar Chart</h3>
+<p>Horizontal bars:</p>
+<pre><code>::: barchart
+title = Output
+Item A = 100
+Item B = 80
+:::</code></pre>
+<h3 id="histogram">Histogram</h3>
+<p>Vertical bars for frequency distribution:</p>
+<pre><code>::: histogram
+title = Distribution
+Bin 1 = 5
+Bin 2 = 12
+:::</code></pre>
+<h3 id="line-chart">Line Chart</h3>
+<p>Multiple data series over a sequence (space-separated values):</p>
+<pre><code>::: linechart
+title = Time Series
+Series A = 10 20 30 25 40
+Series B = 5 15 25 35 30
+:::</code></pre>
+<h3 id="scatter-plot">Scatter Plot</h3>
+<p>Correlation between two variables (x,y pairs):</p>
+<pre><code>::: scatterplot
+title = Correlation
+Dataset = 1,2 3,5 5,8 7,11
+:::</code></pre>
+<h3 id="gauge">Gauge</h3>
+<p>Single value as a proportion of max:</p>
+<pre><code>::: gauge
+title = Status
+value = 75
+max = 100
+label = percent
+:::</code></pre>
+<h2 id="colored-tables">Colored Tables</h2>
+<p>Add <code><!-- rowclass:colorname --></code> before a table row to color it. Available colors: blue, red, green, yellow, orange, purple, cyan, grey.</p>
+<pre><code><!-- rowclass:green -->
+| Item | Value |
+| ---- | ----- |
+| Good | 100 |</code></pre>
+<h2 id="icons">Icons</h2>
+<p>A library of Win95 icons ships in <code>static/icons/</code> (<code>.png</code>). Reference them from any page:</p>
+<ul>
+  <li><code>![Gears](static/icons/w98_gears.png)</code></li>
+  <li><code>![Hardware](static/icons/w98_hardware.png)</code></li>
+  <li><code>![Search](static/icons/w98_magnifying_glass.png)</code></li>
+</ul>
+<p>Any remote image URL also works, e.g. <code>![logo](https://example.com/logo.png)</code>.</p>
+<h2 id="search">Search</h2>
+<p>Every page has a search box in the title bar with live suggestions; pressing Enter opens the dedicated <a href="search.html">search results page</a>.</p>
+<p>Search works over page titles and body text using a static index (<code>static/search-index.js</code>) generated at build time, so no server is required.</p>
+<h2 id="links">Links</h2>
+<p>Internal links use relative paths between HTML pages. From the home page, link to another page with <code>[page name](page-name.html)</code>.</p>
+<p>External links work the same way: <code>[example](https://example.com)</code>.</p>
+<h2 id="design">Design</h2>
+<p>The wiki follows these principles:</p>
+<ul>
+  <li><strong>Content first.</strong> Navigation exists to serve content, not the other way around.</li>
+  <li><strong>Scannable structure.</strong> Every page has a clear heading hierarchy. The table of contents in the sidebar reflects the page structure.</li>
+  <li><strong>Predictable layout.</strong> Every page uses the same template. The title bar, sidebar, content area, and scrollbars are consistent.</li>
+  <li><strong>Static-first.</strong> The only scripts are the animated desktop background and client-side search; there is no backend, no framework, and no build tool beyond Python.</li>
+</ul>
+<h2 id="building">Building</h2>
+<p>The build script requires Python 3 and no external dependencies.</p>
+<pre><code>py wiki/build.py</code></pre>
+<p>Output is written to <code>wiki/dist/</code>. Open <code>dist/index.html</code> in a browser to preview.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Site-wide settings live in <code>wiki/config.py</code> (MediaWiki-style <code>WG_</code> variables):</p>
+<ul>
+  <li><code>WG_SITENAME</code>, <code>WG_TAGLINE</code>, <code>WG_TITLE_SUFFIX</code> — site identity</li>
+  <li><code>WG_LOGO_MAIN</code>, <code>WG_LOGO_ICON</code> — logo paths</li>
+  <li><code>WG_TAGS</code> — article tag registry (<code>{{stub}}</code>, <code>{{wip}}</code>, etc.)</li>
+  <li><code>WG_DEFAULT_THEME</code> (<code>light</code> | <code>dark</code> | <code>auto</code>), <code>WG_DEFAULT_ZOOM</code> — UI defaults</li>
+  <li><code>WG_ZOOM_MIN</code>, <code>WG_ZOOM_MAX</code>, <code>WG_ZOOM_STEP</code> — zoom bounds</li>
+  <li><code>WG_WINDOW_MAX_WIDTH</code> — window width</li>
+  <li><code>WG_VORONOI_*</code> — background shader colors (light and dark)</li>
+</ul>
+<p>Theme and zoom choices are saved to <code>localStorage</code> (with a cookie fallback) and carried in the URL on navigation, so they stay consistent across all pages and browser restarts.</p>
+<h2 id="hosting">Hosting</h2>
+<p>Since the built output is committed to the repository, any static file host can serve the wiki directly from the <code>dist/</code> directory. GitHub Pages, Netlify, and similar services can be configured to serve from the <code>wiki/dist/</code> path.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>

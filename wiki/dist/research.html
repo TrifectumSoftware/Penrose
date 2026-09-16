@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Bench - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">Research Bench</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <nav class="toc-nav"><h2>Contents</h2><ul>
+<li><a href="#research-bench">Research Bench</a></li>
+  <li><a href="#how-it-works">How it works</a></li>
+  <li><a href="#see-also">See also</a></li>
+</ul></nav>
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <div class="tag tag--stub">
+  <img class="tag__icon" src="static/icons/w98_msg_information.png" alt="">
+  <div class="tag__text"><strong>This article is a stub.</strong> You can help by expanding it.</div>
+</div>
+<h1 id="research-bench">Research Bench</h1>
+<aside class="infobox"><table>
+<tr class="infobox__title"><th colspan="2">Research Bench</th></tr>
+<tr class="infobox__image"><td colspan="2"><img src="static/icons/w98_tree.png" alt="Research Bench"><div class="infobox__caption">Generates research points</div></td></tr>
+<tr><th>Type</th><td>Machine</td></tr>
+<tr><th>Category</th><td>Research</td></tr>
+<tr><th>Input</th><td>Items + fuel</td></tr>
+<tr><th>Output</th><td>Research points</td></tr>
+</table></aside>
+<p>The <strong>research bench</strong> converts items into research points, unlocking new machines and recipes.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Route output items to the bench. It burns coal as fuel and produces research points over time.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+  <li><a href="coal.html">Coal</a> — the fuel source</li>
+  <li><a href="furnace.html">Furnace</a></li>
+</ul>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contents - Penrose Wiki</title>
+  <link rel="stylesheet" href="static/style.css">
+  <style>:root { --window-max-width: min(1600px, calc(100vw - 100px)); }</style>
+  <script>window.WIKI_CONFIG={"defaultTheme": "light", "defaultZoom": 1.0, "zoomMin": 0.6, "zoomMax": 1.6, "zoomStep": 0.1, "voronoiLightBase": [0, 128, 128], "voronoiLightCell": [16, 146, 146], "voronoiDarkBase": [4, 15, 15], "voronoiDarkCell": [8, 26, 26]};</script>
+  <script src="static/settings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <canvas id="voronoi-bg" class="voronoi-bg" aria-hidden="true"></canvas>
+
+  <div class="desktop">
+    <div class="window" role="main">
+      <div class="titlebar">
+        <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+        <span class="titlebar__text">Contents</span>
+        <div class="search">
+          <img class="search__icon" src="static/icons/w98_magnifying_glass.png" alt="">
+          <input id="search-input" class="search__input" type="text" placeholder="Search" aria-label="Search the wiki" autocomplete="off">
+          <div id="search-results" class="search__results"></div>
+        </div>
+      </div>
+
+      <div class="window-body">
+        <aside class="sidebar">
+          <a class="sidebar-brand" href="index.html" aria-label="Penrose Wiki home">
+            <img class="sidebar-brand__logo" src="static/penrose.svg" alt="Penrose Wiki">
+            <span class="sidebar-brand__text">penrose.wiki</span>
+          </a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <div class="zoom-control">
+            <span class="zoom-control__label">Zoom</span>
+            <div class="zoom-control__row">
+              <button id="zoom-out" class="zoom-btn" type="button" aria-label="Zoom out">&minus;</button>
+              <span id="zoom-label" class="zoom-label">100%</span>
+              <button id="zoom-in" class="zoom-btn" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <nav class="toc-nav"><h2>Contents</h2><ul>
+<li><a href="#contents">Contents</a></li>
+  <li><a href="#machines">Machines</a></li>
+  <li><a href="#resources">Resources</a></li>
+  <li><a href="#research">Research</a></li>
+  <li><a href="#meta">Meta</a></li>
+  <li><a href="#examples">Examples</a></li>
+</ul></nav>
+        </aside>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+        <article class="content" id="content">
+          <h1 id="contents">Contents</h1>
+<p>This is the central index of the wiki, organised by topic.</p>
+<h2 id="machines">Machines</h2>
+<ul>
+  <li><a href="furnace.html">Furnace</a> — smelts ore into metal</li>
+  <li><a href="drill.html">Drill</a> — extracts raw resources</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><a href="coal.html">Coal</a> — the primary fuel</li>
+  <li><a href="iron.html">Iron</a> — a refined metal</li>
+</ul>
+<h2 id="research">Research</h2>
+<ul>
+  <li><a href="research.html">Research Bench</a> — unlocks new technology</li>
+</ul>
+<h2 id="meta">Meta</h2>
+<ul>
+  <li><a href="this-wiki.html">This wiki</a> — how this wiki works</li>
+  <li><a href="index.html">Welcome</a> — the main page</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+  <li><a href="colored-tables.html">Colored Tables</a> — colored table rows</li>
+  <li><a href="pie-charts.html">Pie Charts</a> — inline SVG pie charts</li>
+  <li><a href="bar-charts.html">Bar Charts</a> — inline SVG bar charts</li>
+  <li><a href="histograms.html">Histograms</a> — frequency distribution charts</li>
+  <li><a href="line-charts.html">Line Charts</a> — multi-series line charts</li>
+  <li><a href="scatter-plots.html">Scatter Plots</a> — correlation plots</li>
+  <li><a href="donut-charts.html">Donut Charts</a> — hollow pie charts</li>
+  <li><a href="gauges.html">Gauges</a> — single-value gauge displays</li>
+</ul>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script src="static/voronoi.js"></script>
+  <script src="static/search-index.js"></script>
+  <script src="static/search.js"></script>
+</body>
+</html>
