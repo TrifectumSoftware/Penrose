@@ -1214,7 +1214,7 @@ html.theme-dark .tag--wip {
   }
 
   .content {
-    padding: 8px 10px;
+    padding: 8px 16px;
   }
 
   .search {
@@ -1239,41 +1239,46 @@ html.theme-dark .tag--wip {
 }
 
 /* ============================================================
-   Top navigation bar
+   Top navigation bar (Win95 toolbar)
    ============================================================ */
 .nav-bar {
   display: flex;
-  gap: 0;
+  gap: 2px;
   background: var(--win-grey);
-  border-bottom: 2px solid;
-  border-color: var(--win-border-shadow);
-  padding: 0 4px;
+  border-bottom: 1px solid var(--win-border-dark);
+  padding: 3px 4px;
   flex-shrink: 0;
   overflow-x: auto;
 }
 
 .nav-bar__link {
   display: block;
-  padding: 4px 12px;
+  padding: 3px 10px;
   font-family: var(--win-font);
   font-size: var(--font-11);
   color: var(--win-black);
   text-decoration: none;
-  border: 1px solid transparent;
-  border-bottom: none;
   white-space: nowrap;
-  position: relative;
-  top: 2px;
   border-radius: 0;
+  border: 2px solid;
+  border-color: var(--win-border-light) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-light);
+  background: var(--win-grey);
 }
 
 .nav-bar__link:hover {
   background: var(--win-light-grey);
 }
 
+.nav-bar__link:active {
+  border-color: var(--win-border-shadow) var(--win-border-light)
+              var(--win-border-light) var(--win-border-shadow);
+}
+
 .nav-bar__link--active {
+  border-color: var(--win-border-shadow) var(--win-border-light)
+              var(--win-border-light) var(--win-border-shadow);
   background: var(--win-white);
-  border-color: var(--win-border-shadow) var(--win-border-shadow) var(--win-white) var(--win-border-shadow);
   font-weight: bold;
 }
 

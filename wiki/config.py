@@ -35,6 +35,7 @@ WG_SIDEBAR_SECTIONS = [
     ("Topics", [
         ("Machines", "category-machines.html"),
         ("Resources", "category-resources.html"),
+        ("Examples", "category-examples.html"),
         ("Meta", "category-meta.html"),
     ]),
     ("Community", [

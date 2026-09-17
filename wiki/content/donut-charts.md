@@ -1,6 +1,7 @@
 ---
 title: Donut Charts
 topic: Examples
+categories: Examples
 icon: w98_bar_graph.png
 ---
 

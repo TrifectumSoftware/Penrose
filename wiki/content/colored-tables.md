@@ -1,6 +1,7 @@
 ---
 title: Colored Tables
 topic: Examples
+categories: Examples
 icon: w98_bar_graph.png
 ---
 
