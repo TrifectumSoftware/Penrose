@@ -226,7 +226,7 @@ The table of contents in the sidebar is collapsible. Click the header to expand/
 A library of Win95 icons ships in `static/icons/` (`.png`). Reference them from any page:
 
 - `![Gears](static/icons/w98_gears.png)`
-- `![Hardware](static/icons/w98_hardware.png)`
+- `![Tools](static/icons/w98_application_hammer_grouppol.png)`
 - `![Search](static/icons/w98_magnifying_glass.png)`
 
 Any remote image URL also works, e.g. `![logo](https://example.com/logo.png)`.

@@ -2,14 +2,14 @@
 title: Drill
 topic: Machines
 categories: Machines, Extraction
-icon: w98_hardware.png
+icon: w98_application_hammer_grouppol.png
 ---
 
 # Drill
 
 ::: infobox
 title = Drill
-image = static/icons/w98_hardware.png
+image = static/icons/w98_application_hammer_grouppol.png
 caption = A primitive drill
 Type = Machine
 Category = Extraction

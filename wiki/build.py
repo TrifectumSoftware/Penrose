@@ -92,7 +92,14 @@ def build_nav_bar(current_name):
     for label, url in config.WG_NAV_LINKS:
         cls = " nav-bar__link--active" if url == current_name + ".html" else ""
         links.append(f'<a class="nav-bar__link{cls}" href="{url}">{label}</a>')
-    return '<nav class="nav-bar">\n' + "\n".join(links) + "\n</nav>"
+    nav_left = "\n".join(links)
+    nav_right = (
+        '<span class="nav-bar__history">'
+        '<button class="nav-bar__btn" onclick="history.back()" title="Back">&#9665;</button>'
+        '<button class="nav-bar__btn" onclick="history.forward()" title="Forward">&#9655;</button>'
+        '</span>'
+    )
+    return f'<nav class="nav-bar">\n{nav_left}\n{nav_right}\n</nav>'
 
 
 def build_breadcrumbs(page):
@@ -621,6 +628,17 @@ def parse_linechart(lines):
     inner_h = chart_h - margin_t - margin_b
 
     elements = []
+    # Axes first (render behind lines)
+    elements.append(f'<line x1="{margin_l}" y1="{margin_t}" x2="{margin_l}" y2="{margin_t + inner_h}" stroke="var(--win-dark-grey)" stroke-width="1"/>')
+    elements.append(f'<line x1="{margin_l}" y1="{margin_t + inner_h}" x2="{margin_l + inner_w}" y2="{margin_t + inner_h}" stroke="var(--win-dark-grey)" stroke-width="1"/>')
+    for i in range(max_len):
+        x = margin_l + (i / max(max_len - 1, 1)) * inner_w
+        elements.append(f'<text x="{x:.1f}" y="{chart_h - margin_b + 14}" text-anchor="middle" class="barchart-label">{i + 1}</text>')
+    for step in range(5):
+        v = min_val + (max_val - min_val) * step / 4
+        y = margin_t + inner_h - (step / 4) * inner_h
+        elements.append(f'<text x="{margin_l - 6}" y="{y + 4}" text-anchor="end" class="barchart-value">{v:g}</text>')
+    # Then data lines and points on top
     for i, (name, points) in enumerate(series):
         color = BAR_COLORS[i % len(BAR_COLORS)]
         coords = []
@@ -632,16 +650,6 @@ def parse_linechart(lines):
         if len(coords) > 1:
             path_d = " ".join(f"{'M' if k == 0 else 'L'}{x:.1f},{y:.1f}" for k, (x, y) in enumerate(coords))
             elements.append(f'<path d="{path_d}" fill="none" stroke="{color}" stroke-width="2"/>')
-
-    elements.append(f'<line x1="{margin_l}" y1="{margin_t}" x2="{margin_l}" y2="{margin_t + inner_h}" stroke="var(--win-dark-grey)" stroke-width="1"/>')
-    elements.append(f'<line x1="{margin_l}" y1="{margin_t + inner_h}" x2="{margin_l + inner_w}" y2="{margin_t + inner_h}" stroke="var(--win-dark-grey)" stroke-width="1"/>')
-    for i in range(max_len):
-        x = margin_l + (i / max(max_len - 1, 1)) * inner_w
-        elements.append(f'<text x="{x:.1f}" y="{chart_h - margin_b + 14}" text-anchor="middle" class="barchart-label">{i + 1}</text>')
-    for step in range(5):
-        v = min_val + (max_val - min_val) * step / 4
-        y = margin_t + inner_h - (step / 4) * inner_h
-        elements.append(f'<text x="{margin_l - 6}" y="{y + 4}" text-anchor="end" class="barchart-value">{v:g}</text>')
 
     legend_items = []
     for i, (name, _) in enumerate(series):

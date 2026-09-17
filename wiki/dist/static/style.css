@@ -1282,6 +1282,34 @@ html.theme-dark .tag--wip {
   font-weight: bold;
 }
 
+.nav-bar__history {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+}
+
+.nav-bar__btn {
+  padding: 3px 8px;
+  font-family: var(--win-font);
+  font-size: var(--font-11);
+  color: var(--win-black);
+  background: var(--win-grey);
+  border: 2px solid;
+  border-color: var(--win-border-light) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-light);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.nav-bar__btn:hover {
+  background: var(--win-light-grey);
+}
+
+.nav-bar__btn:active {
+  border-color: var(--win-border-shadow) var(--win-border-light)
+              var(--win-border-light) var(--win-border-shadow);
+}
+
 /* ============================================================
    Breadcrumbs
    ============================================================ */
@@ -1371,9 +1399,9 @@ html.theme-dark .tag--wip {
   gap: 12px;
   padding: 10px;
   border: 2px solid;
-  border-color: var(--win-border-light) var(--win-border-shadow)
-              var(--win-border-shadow) var(--win-border-light);
-  background: var(--win-white);
+  border-color: #d4d0c8 var(--win-border-shadow)
+              var(--win-border-shadow) #d4d0c8;
+  background: var(--win-grey);
 }
 
 .featured__icon {
@@ -1435,7 +1463,7 @@ html.theme-dark .tag--wip {
   border: 2px solid;
   border-color: var(--win-border-light) var(--win-border-shadow)
               var(--win-border-shadow) var(--win-border-light);
-  background: var(--win-white);
+  background: var(--win-grey);
   text-align: center;
 }
 
@@ -1461,8 +1489,10 @@ html.theme-dark .tag--wip {
 .dyk {
   margin: 16px 0;
   padding: 10px;
-  border: 1px solid var(--win-border-dark);
-  background: var(--win-white);
+  border: 2px solid;
+  border-color: var(--win-border-light) var(--win-border-shadow)
+              var(--win-border-shadow) var(--win-border-light);
+  background: var(--win-grey);
 }
 
 .dyk h2 {
